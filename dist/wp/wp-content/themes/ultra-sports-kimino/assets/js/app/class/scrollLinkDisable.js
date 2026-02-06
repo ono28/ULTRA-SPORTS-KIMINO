@@ -1,0 +1,1 @@
+class l{constructor(){this.init()}init(){const s=document.querySelector("body");let t=null;const i=()=>{s.classList.add("disable-hover"),clearTimeout(t),t=setTimeout(()=>{s.classList.remove("disable-hover")},300)};let e=!1;window.addEventListener("scroll",()=>{e||(requestAnimationFrame(()=>{i(),e=!1}),e=!0)},{passive:!0})}}export{l as default};

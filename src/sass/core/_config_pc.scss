@@ -1,0 +1,38 @@
+@use 'sass:math';
+
+// -----------------------------------------------------------------
+// setting import
+// -----------------------------------------------------------------
+@use './index' as *;
+
+// -----------------------------------------------------------------
+// PC size setting
+// -----------------------------------------------------------------
+@function px($size, $rem: false) {
+  $calcNum: $size * 1px;
+  @if ($rem) {
+    $calcNum: $size * 0.1rem;
+  }
+  @return $calcNum;
+}
+
+// vw(サイズ, 最小px, 最大px)
+@function vw($size, $min: null, $max: null) {
+  $vw: get_vw($size, $BASE);
+
+  @if $min != null and $max != null {
+    @return clamp(#{$min}px, #{$vw}, #{$max}px);
+  } @else if $min != null {
+    // 最小値のみ → min(px, vw)
+    @return max(#{$min}px, #{$vw});
+  } @else if $max != null {
+    // 最大値のみ → max(vw, px)
+    @return min(#{$vw}, #{$max}px);
+  }
+
+  @return $vw;
+}
+
+// -----------------------------------------------------------------
+// Mixin
+// -----------------------------------------------------------------

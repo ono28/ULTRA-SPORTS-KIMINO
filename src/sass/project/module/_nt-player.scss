@@ -1,0 +1,241 @@
+@use 'sass:math';
+
+// -----------------------------------------------------------------
+// setting import
+// -----------------------------------------------------------------
+@use '../../core/' as *;
+@use '../../core/config_pc' as *;
+@use '../../core/config_max' as max;
+@use '../../core/config_tb' as tb;
+@use '../../core/config_sp_horizontal' as sph;
+@use '../../core/config_sp' as sp;
+
+// -----------------------------------------------------------------
+// PC layout
+// -----------------------------------------------------------------
+[data-ntautoplaymovie] {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  overflow: hidden;
+  will-change: transform;
+  aspect-ratio: 1 / 0.563;
+
+  &.loaded {
+    .poster {
+      opacity: 0;
+    }
+  }
+
+  iframe {
+    transform: translate(-50%, -50%);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: auto;
+    height: 100%;
+    aspect-ratio: 16 / 9;
+  }
+
+  .loader {
+    transform: translate(-50%, -50%);
+    max-width: 50px;
+    width: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1 / 1;
+    z-index: 1;
+    pointer-events: none;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 5px solid rgba(255, 255, 255, 0.6);
+      border-top-color: $white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+  }
+
+  .poster {
+    @include easing($duration: 0.4s, $property: #{'opacity'});
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    &.hide {
+      opacity: 0;
+    }
+  }
+
+  &[data-use-fade='true'] {
+    @include easing($property: filter, $duration: 0.5s);
+    filter: brightness(1);
+    will-change: filter;
+    background-color: $black;
+  }
+} // ntautoplaymovie
+
+[data-ntclickmovie] {
+  display: block;
+  position: relative;
+  pointer-events: none;
+  overflow: hidden;
+  will-change: transform;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 0.563;
+
+  &.loaded {
+    pointer-events: initial;
+
+    .icon {
+      opacity: 1;
+    }
+
+    .loader {
+      opacity: 0;
+    }
+
+    .poster {
+      &:after {
+        opacity: 0;
+      }
+    }
+  }
+
+  &.active {
+    .poster {
+      opacity: 0;
+    }
+  }
+
+  @include hover {
+    .icon {
+      transform: translate(-50%, -50%) scale(1.1);
+    }
+
+    .poster {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+
+  .icon {
+    @include easing($property: #{'transform, opacity'});
+    transform: translate(-50%, -50%);
+    // background: url(../img/common/ic_play.webp) no-repeat 0 0;
+    // background-size: 100% 100%;
+    clip-path: polygon(0 0, 0% 100%, 100% 50%);
+    background-color: red;
+    display: block;
+    max-width: 100px;
+    max-height: 100px;
+    width: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    z-index: 10;
+    opacity: 0;
+    aspect-ratio: 1 / 1;
+  }
+
+  .loader {
+    @include easing($property: #{'opacity'});
+    transform: translate(-50%, -50%);
+    max-width: 50px;
+    width: 15%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    aspect-ratio: 1 / 1;
+    z-index: 1;
+    pointer-events: none;
+
+    &:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 5px solid rgba(255, 255, 255, 0.6);
+      border-top-color: $white;
+      border-radius: 50%;
+      animation: spin 1s linear infinite;
+      z-index: 1;
+      box-sizing: border-box;
+    }
+  }
+
+  iframe {
+    position: absolute;
+    top: -3px;
+    left: -3px;
+    width: calc(100% + 6px);
+    height: calc(100% + 6px);
+  }
+
+  .poster {
+    @include easing($property: #{'opacity'});
+    transform: translate3d(0, 0, 0);
+    opacity: 1;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    overflow: hidden;
+
+    img {
+      @include easing($property: #{'transform'});
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+} // ntclickmovie
+
+// -----------------------------------------------------------------
+// MAX layout
+// -----------------------------------------------------------------
+@include max {
+}
+
+// -----------------------------------------------------------------
+// TB layout
+// -----------------------------------------------------------------
+@include tb {
+}
+
+// -----------------------------------------------------------------
+// SP Horizontal layout
+// -----------------------------------------------------------------
+@include sp_horizontal {
+}
+
+// -----------------------------------------------------------------
+// SP layout
+// -----------------------------------------------------------------
+@include sp {
+}

@@ -1,0 +1,198 @@
+@use 'sass:math';
+
+// -----------------------------------------------------------------
+// setting import
+// -----------------------------------------------------------------
+@use '../../core/' as *;
+@use '../../core/config_pc' as *;
+@use '../../core/config_max' as max;
+@use '../../core/config_tb' as tb;
+@use '../../core/config_sp_horizontal' as sph;
+@use '../../core/config_sp' as sp;
+
+// -----------------------------------------------------------------
+// PC layout
+// -----------------------------------------------------------------
+[data-target],
+[data-target-center] {
+  @include easing($duration: 0.3s, $property: #{'transform, opacity'}, $delay: 0.2s);
+  // transform: scale(0.9);
+  opacity: 0;
+  will-change: transform, opacity;
+
+  &.action {
+    // transform: scale(1);
+    opacity: 1;
+  }
+
+  &[data-mask-right],
+  &[data-mask-left],
+  &[data-mask-up],
+  &[data-mask-down] {
+    @include easing($duration: 1s, $property: #{'clip-path'}, $easing: $easeInOutQuart);
+    display: inline-block;
+    visibility: hidden;
+    opacity: 1;
+
+    &.action {
+      visibility: visible;
+      clip-path: inset(0);
+    }
+  }
+
+  &[data-mask-right] {
+    clip-path: inset(0 99.99% 0 0);
+  }
+
+  &[data-mask-left] {
+    clip-path: inset(0 0 0 99.99%);
+  }
+
+  &[data-mask-up] {
+    clip-path: inset(99.99% 0 0 0);
+  }
+
+  &[data-mask-down] {
+    clip-path: inset(0 0 99.99% 0);
+  }
+
+  &[data-nomotion] {
+    transition: none;
+    opacity: 1;
+  }
+
+  &[data-slideup] {
+    transform: translateY(#{vw(30)}) scale(1);
+
+    &.action {
+      transform: translateY(0);
+    }
+  }
+
+  &[data-slidedown] {
+    transform: translateY(#{vw(-30)}) scale(1);
+
+    &.action {
+      transform: translateY(0);
+    }
+  }
+
+  &[data-slideleft] {
+    transform: translateX(#{vw(30)}) scale(1);
+
+    &.action {
+      transform: translateX(0);
+    }
+  }
+
+  &[data-slideright] {
+    transform: translateX(#{vw(-30)}) scale(1);
+
+    &.action {
+      transform: translateX(0);
+    }
+  }
+
+  &[data-scaleup] {
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-timing-function: $easeOutBack;
+    transform: scale(0.7);
+
+    &.action {
+      transform: scale(1);
+    }
+  }
+
+  &[data-scaledown] {
+    transition-delay: 0s;
+    transition-duration: 0.4s;
+    transition-timing-function: $easeInOutBack;
+    transform: scale(1.3);
+
+    &.action {
+      transform: scale(1);
+    }
+  }
+
+  &[data-paint] {
+    &.action {
+      animation: paint_mask 1s steps(5) forwards;
+    }
+  }
+}
+
+// -----------------------------------------------------------------
+// MAX layout
+// -----------------------------------------------------------------
+@include max {
+  [data-target] {
+    &[data-slideup] {
+      transform: translateY(#{max.vw(20)}) scale(1);
+    }
+
+    &[data-slidedown] {
+      transform: translateY(#{max.vw(-20)}) scale(1);
+    }
+
+    &[data-slideleft] {
+      transform: translateX(#{max.vw(20)}) scale(1);
+    }
+
+    &[data-slideright] {
+      transform: translateX(#{max.vw(-20)}) scale(1);
+    }
+  }
+}
+
+// -----------------------------------------------------------------
+// TB layout
+// -----------------------------------------------------------------
+@include tb {
+  [data-target] {
+    &[data-slideup] {
+      transform: translateY(#{tb.vw(20)}) scale(1);
+    }
+
+    &[data-slidedown] {
+      transform: translateY(#{tb.vw(-20)}) scale(1);
+    }
+
+    &[data-slideleft] {
+      transform: translateX(#{tb.vw(20)}) scale(1);
+    }
+
+    &[data-slideright] {
+      transform: translateX(#{tb.vw(-20)}) scale(1);
+    }
+  }
+}
+
+// -----------------------------------------------------------------
+// SP Horizontal layout
+// -----------------------------------------------------------------
+@include sp_horizontal {
+}
+
+// -----------------------------------------------------------------
+// SP layout
+// -----------------------------------------------------------------
+@include sp {
+  [data-target] {
+    &[data-slideup] {
+      transform: translateY(#{sp.vw(30)}) scale(1);
+    }
+
+    &[data-slidedown] {
+      transform: translateY(#{sp.vw(-30)}) scale(1);
+    }
+
+    &[data-slideleft] {
+      transform: translateX(#{sp.vw(30)}) scale(1);
+    }
+
+    &[data-slideright] {
+      transform: translateX(#{sp.vw(-30)}) scale(1);
+    }
+  }
+}

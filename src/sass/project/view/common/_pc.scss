@@ -1,0 +1,127 @@
+@use 'sass:math';
+
+// -----------------------------------------------------------------
+// setting import
+// -----------------------------------------------------------------
+@use '../../../core/' as *;
+@use '../../../core/config_pc' as *;
+
+// -----------------------------------------------------------------
+// Base layout
+// -----------------------------------------------------------------
+html {
+  font-size: 100%;
+  width: 100%;
+  height: 100dvh;
+  overflow-x: clip;
+}
+
+body {
+  width: 100vw;
+  max-width: 100%;
+  overflow: clip;
+  scrollbar-gutter: stable;
+
+  &.noscroll {
+    position: fixed;
+    left: 0;
+    width: calc(100% - var(--scrollbarWidth));
+  }
+
+  picture {
+    position: relative;
+  }
+
+  img {
+    max-width: initial;
+    width: 100%;
+  }
+}
+
+// -----------------------------------------------------------------
+// Loading
+// -----------------------------------------------------------------
+#loading {
+  @include easing($duration: 0.4s, $property: #{'opacity,visibility'});
+  background: $white;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 999;
+
+  &.hide {
+    opacity: 0;
+    visibility: hidden;
+  }
+} // loading
+
+// -----------------------------------------------------------------
+// Global Header Layout
+// -----------------------------------------------------------------
+#globalHeader {
+} // globalHeader
+
+// -----------------------------------------------------------------
+// Global Footer Layout
+// -----------------------------------------------------------------
+#globalFooter {
+} // globalFooter
+
+// -----------------------------------------------------------------
+// Wrapper Layout
+// -----------------------------------------------------------------
+#wrapper {
+  position: relative;
+  font-feature-settings: 'palt';
+
+  // デバッグ用のガイド
+  // &:before,
+  // &:after {
+  //   background-color: #f0f;
+  //   content: '';
+  //   display: block;
+  //   width: 1px;
+  //   height: 100%;
+  //   position: fixed;
+  //   top: 0;
+  //   left: 50%;
+  //   pointer-events: none;
+  //   z-index: 999;
+  // }
+  // &:before {
+  //   margin-left: vw(-704);
+  // }
+  // &:after {
+  //   margin-left: vw(704);
+  // }
+} // wrapper
+
+// -----------------------------------------------------------------
+// container Layout
+// -----------------------------------------------------------------
+#container {
+  position: relative;
+
+  // デバッグ用のガイド
+  // &:before,
+  // &:after {
+  //   background-color: #00f;
+  //   content: '';
+  //   display: block;
+  //   width: 1px;
+  //   height: 100%;
+  //   position: fixed;
+  //   top: 0;
+  //   left: 50%;
+  //   pointer-events: none;
+  //   z-index: 999;
+  // }
+  // &:before {
+  //   margin-left: vw(-640);
+  // }
+  // &:after {
+  //   margin-left: vw(640);
+  // }
+} // container

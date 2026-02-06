@@ -1,0 +1,105 @@
+@use './easing' as *;
+@use './variable' as *;
+
+// -----------------------------------------------------------------
+// Mixin
+// -----------------------------------------------------------------
+// easing簡易入力
+@mixin easing($duration: 0.4s, $easing: ease, $property: null, $delay: 0s) {
+  transition-duration: $duration;
+  transition-timing-function: $easing;
+  transition-property: $property;
+  transition-delay: $delay;
+}
+
+// メディアクエリ簡易入力
+@mixin pc {
+  // タブレットレイアウト使用はこちら
+  // @media screen and (min-width: #{$TB}px) {
+
+  // PCとSPレイアウトだけならこちら
+  @media screen and (min-width: #{$SP}px) {
+    @content;
+  }
+}
+@mixin tb {
+  @media screen and (min-width: #{$SP + 10}px) and (max-width: #{$TB}px) and (min-height: 415px) and (orientation: portrait) {
+    @content;
+  }
+}
+@mixin sp {
+  @media screen and (max-width: #{$SP + 9.98}px) and (orientation: portrait) {
+    @content;
+  }
+}
+
+@mixin sp_horizontal {
+  @media screen and (max-height: 414px) and (orientation: landscape) {
+    @content;
+  }
+}
+
+@mixin xl {
+  @media screen and (min-width: #{$XL}px) {
+    @content;
+  }
+}
+
+@mixin max {
+  @media screen and (min-width: #{$MAX}px) {
+    @content;
+  }
+}
+
+// 任意の数値でメディアクエリ
+// ex) 1024px以上      @include mq(1024px, null)
+// ex) 1024px以下      @include mq(null, 1024px)
+// ex) 768px〜1024px   @include mq(768px, 1024px)
+@mixin mq($min: null, $max: null) {
+  @if $min != null and $max != null {
+    @media screen and (min-width: $min) and (max-width: $max) {
+      @content;
+    }
+  } @else if $min != null {
+    @media screen and (min-width: $min) {
+      @content;
+    }
+  } @else if $max != null {
+    @media screen and (max-width: $max) {
+      @content;
+    }
+  } @else {
+    @error "mq mixin: $min か $max のどちらかは指定必須";
+  }
+}
+
+// :hover簡易入力
+@mixin hover {
+  @media (hover: hover) and (pointer: fine) {
+    &:hover {
+      @content;
+    }
+  }
+}
+
+// 英語判定
+@mixin en {
+  [lang='en-US'] & {
+    @content;
+  }
+}
+
+// フォント設定
+@mixin mincho {
+  font-family: '游明朝', 'Yu Mincho', YuMincho, 'Hiragino Mincho Pro', serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+@mixin gothic {
+  font-family: 'YakuHanJPs', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', 'メイリオ', Meiryo, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}

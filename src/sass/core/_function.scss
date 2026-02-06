@@ -1,0 +1,11 @@
+@use 'sass:math';
+
+// -----------------------------------------------------------------
+// Function
+// -----------------------------------------------------------------
+// vw変換
+@function get_vw($size, $viewport: $BASE) {
+  // $rate: math.div(100, $viewport);
+  // @return $rate * $size * 1vw;
+  @return calc(#{$size} / #{$viewport} * 100dvw);
+}

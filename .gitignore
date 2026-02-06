@@ -1,0 +1,60 @@
+# =====================
+# Git
+# =====================
+!.gitignore
+
+# =====================
+# Node
+# =====================
+src/node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+
+# =====================
+# OS
+# =====================
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# =====================
+# Editor / IDE
+# =====================
+.idea
+.vscode/
+nbproject/
+*.swp
+*.swo
+*~
+*.bak
+
+# =====================
+# Env
+# =====================
+.env
+.env.*
+node_modules
+
+# ============================================================
+# WordPress
+# ============================================================
+xmlrpc.php
+.htaccess
+license.txt
+readme.html
+sitemap.xml
+sitemap.xml.gz
+wp-admin
+wp-includes
+wp-*.php
+**/wp-content/languages
+**/wp-content/uploads
+**/wp-content/upgrade
+**/wp-content/plugins
+**/wp-content/ai1wm-backups
+**/wp-content/index.php
+!**/wp-content/themes
+!**/wp-content/themes/**
+**/wp-content/themes/index.php

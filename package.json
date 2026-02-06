@@ -1,0 +1,41 @@
+{
+  "author": "mattune",
+  "private": true,
+  "license": "UNLICENSED",
+  "scripts": {
+    "dev": "node _runner/index.mjs dev",
+    "dev:debug": "DEBUG=true node _runner/index.mjs dev",
+    "build": "node _runner/index.mjs build",
+    "build:debug": "DEBUG=true node _runner/index.mjs build",
+    "clean": "node _runner/index.mjs clean"
+  },
+  "devDependencies": {
+    "autoprefixer": "^10.4.23",
+    "chokidar": "^5.0.0",
+    "chokidar-cli": "^3.0.0",
+    "esbuild": "^0.27.2",
+    "fast-glob": "^3.3.3",
+    "mime": "^4.1.0",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.5.6",
+    "postcss-cli": "^11.0.1",
+    "prettier": "^3.7.4",
+    "pug-cli": "^1.0.0-alpha6",
+    "sass": "^1.97.1",
+    "sirv-cli": "^3.0.1",
+    "ws": "^8.18.3"
+  },
+  "dependencies": {
+    "@splidejs/splide": "^4.1.4",
+    "@splidejs/splide-extension-auto-scroll": "^0.5.3",
+    "@splidejs/splide-extension-intersection": "^0.2.0",
+    "dompurify": "^2.5.8",
+    "open": "^11.0.0",
+    "simplebar": "^6.3.3"
+  },
+  "browserslist": [
+    "last 2 versions",
+    "last 2 iOS major versions",
+    "not dead"
+  ]
+}

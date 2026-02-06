@@ -1,0 +1,170 @@
+@use 'sass:math';
+
+// -----------------------------------------------------------------
+// setting import
+// -----------------------------------------------------------------
+@use '../../core/' as *;
+@use '../../core/config_pc' as *;
+@use '../../core/config_max' as max;
+@use '../../core/config_tb' as tb;
+@use '../../core/config_sp_horizontal' as sph;
+@use '../../core/config_sp' as sp;
+
+// -----------------------------------------------------------------
+// PC layout
+// -----------------------------------------------------------------
+// YT Player
+[data-yt_player] {
+  position: relative;
+  pointer-events: none;
+  // filter: grayscale(100%);
+
+  &.is_loaded {
+    pointer-events: initial;
+    // filter: grayscale(0);
+  }
+
+  &.is_playing {
+    .yt_poster {
+      display: none;
+    }
+  }
+
+  &:before {
+    content: '';
+    display: block;
+    padding-top: 56.3%;
+  }
+
+  .yt_playbtn {
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    @include hover {
+      .play {
+        transform: translate(-50%, -50%) scale(1.1);
+      }
+    }
+  }
+
+  .yt_poster {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  .yt_player {
+    position: absolute;
+    top: -0.5px;
+    left: -0.5px;
+    width: calc(100% + 1px);
+    height: calc(100% + 1px);
+  }
+}
+
+// YT modal
+.yt-modal {
+  @include easing($property: #{'opacity,visibility'});
+  background-color: rgba(0, 0, 0, 0.5);
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 10000;
+  overflow-y: auto;
+  overflow-x: hidden;
+  opacity: 0;
+  visibility: hidden;
+
+  &.active {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .yt_modal-close {
+    position: absolute;
+    top: -5rem;
+    right: 0;
+    display: block;
+    z-index: 99;
+    font-size: 4rem;
+    color: #fff;
+
+    @include hover {
+      opacity: 0.5;
+    }
+  } // btn_close
+
+  .modal-content {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    z-index: 10;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  } // modal-content
+
+  .modal-content-inner {
+    position: relative;
+    width: 80%;
+    max-width: 1600px;
+    margin: auto;
+  } // modal-content-inner
+
+  .yt_modal-iframe {
+    overflow: hidden;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    aspect-ratio: 1 / 0.563;
+
+    iframe {
+      transform: translate(-50%, -50%);
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      width: auto;
+      height: 100%;
+      aspect-ratio: 16 / 9;
+    }
+  } // yt_modal-iframe
+} // yt-modal
+
+// -----------------------------------------------------------------
+// MAX layout
+// -----------------------------------------------------------------
+@include max {
+}
+
+// -----------------------------------------------------------------
+// TB layout
+// -----------------------------------------------------------------
+@include tb {
+}
+
+// -----------------------------------------------------------------
+// SP Horizontal layout
+// -----------------------------------------------------------------
+@include sp_horizontal {
+}
+
+// -----------------------------------------------------------------
+// SP layout
+// -----------------------------------------------------------------
+@include sp {
+}

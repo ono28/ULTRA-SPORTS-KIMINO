@@ -1,0 +1,48 @@
+include /_settings/_mixin
+- const cssPath = './assets/css/'
+- const jsPath = './assets/js/app/'
+- const page = 'top'
+
+-
+  var settings = {
+    siteURL : 'https://fullerene.co.jp',
+    siteTITLE : 'フラーレン',
+    siteDISCRIPTION : '',
+    siteKEYWORDS : null,
+    siteOGP : 'ogp.png'
+  }
+
+doctype html
+html(lang="ja")
+  head
+    +meta(settings.siteTITLE, settings.siteDISCRIPTION, settings.siteURL, settings.siteKEYWORDS, settings.siteOGP)
+
+    link(type='text/css' rel='stylesheet' href=cssPath + "main.css")
+    link(type='text/css' rel='stylesheet' href=cssPath + "top.css")
+
+  |
+  |
+  |
+  body(data-page=`${page}`)
+    //- ///////////////////// コンテンツここから /////////////////////
+    include /_include/_loading
+
+    #wrapper
+      main#container
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br>
+        <br><br><br><br><br><br><br><br><br><br><br>
+
+      include /_include/_footer
+
+    |
+    |
+    |
+
+    |
+    |
+    |
+    script(type="module", src=jsPath + "main.js")
+    script(type="module", src=jsPath + "top.js")
+    //- ///////////////////// コンテンツここまで /////////////////////

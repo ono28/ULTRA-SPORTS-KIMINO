@@ -1,0 +1,83 @@
+//- meta情報
+mixin meta(title, description, url, keywords, ogpPath)
+  - var keyword
+
+  if keywords == null
+    - keyword = ''
+  else
+    - keyword = keywords
+
+  meta(charset='utf-8')
+  meta(http-equiv='x-ua-compatible' content='ie=edge')
+  meta(name='viewport' content='width=device-width,viewport-fit=cover')
+  |
+  |
+  |
+  title #{title}
+  |
+  |
+  |
+  meta(name='keywords' content=keyword)
+  meta(name='description' content=description)
+  |
+  |
+  |
+  meta(property='og:title' content=title)
+  meta(property='og:type' content='article')
+  meta(property='og:description' content=description)
+  meta(property='og:url' content=url + 'index.html')
+  meta(property='og:image' content='https://fullerene.co.jp/' + ogpPath)
+  meta(property='og:site_name' content=title)
+  |
+  |
+  |
+  meta(name='twitter:card' content='summary_large_image')
+  meta(name='twitter:title' content=title)
+  meta(name='twitter:description' content=description)
+  meta(name='twitter:image:src' content='https://fullerene.co.jp/' + ogpPath)
+  |
+  |
+  |
+  link(rel='canonical' href=url + 'index.html')
+  link(rel="shortcut icon" type="image/x-icon" href="favicon.ico")
+  link(rel="preconnect" href="https://fonts.googleapis.com")
+  link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+  link(rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-noto.min.css")
+  link(rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Noto+Sans+JP:wght@100..900&display=swap")
+
+
+
+//- SVG symbol
+mixin svg(svg_id,cls)
+  if svg_id
+    svg(class=cls)&attributes(attributes)
+      use(href = '#' + svg_id)
+
+//- 画像出し分け
+//- picture(pc, sp, alt, options)
+//- options: { class, lazy, fetchpriority }
+mixin picture(pc, sp, alt, options = {})
+  -
+    const _alt = alt != null ? alt : ''
+    const cls = options.class || ''
+    const lazy = (options.lazy === false) ? false : true
+    const fetchpriority = options.fetchpriority || false
+
+  picture
+    if lazy
+      source(data-lzy data-srcset=sp media="(max-width: 759px) and (orientation: portrait)")
+      img(
+        data-lzy
+        data-src=pc
+        alt=_alt
+        class=cls
+        fetchpriority=fetchpriority
+      )
+    else
+      source(srcset=sp media="(max-width: 759px) and (orientation: portrait)")
+      img(
+        src=pc
+        alt=_alt
+        class=cls
+        fetchpriority=fetchpriority
+      )

@@ -1,0 +1,56 @@
+@use '../../core/mixin' as *;
+
+// -----------------------------------------------------------------
+// Device
+// -----------------------------------------------------------------
+@include pc {
+  #wrapper,
+  #modal {
+    [data-tb],
+    [data-sp] {
+      display: none !important;
+    }
+    [data-pc] {
+      display: inline-block !important;
+    }
+  }
+}
+
+@include sp_horizontal {
+  #wrapper,
+  #modal {
+    [data-tb],
+    [data-sp] {
+      display: none !important;
+    }
+    [data-pc] {
+      display: inline-block !important;
+    }
+  }
+}
+
+@include tb {
+  #wrapper,
+  #modal {
+    [data-pc],
+    [data-sp] {
+      display: none !important;
+    }
+    [data-tb] {
+      display: inline-block !important;
+    }
+  }
+}
+
+@include sp {
+  #wrapper,
+  #modal {
+    [data-tb],
+    [data-pc] {
+      display: none !important;
+    }
+    [data-sp] {
+      display: inline-block !important;
+    }
+  }
+}
