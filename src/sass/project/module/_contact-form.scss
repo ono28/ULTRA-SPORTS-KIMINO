@@ -1,0 +1,73 @@
+@use 'sass:math';
+
+// -----------------------------------------------------------------
+// setting import
+// -----------------------------------------------------------------
+@use '../../core/' as *;
+@use '../../core/config_pc' as *;
+@use '../../core/config_max' as max;
+@use '../../core/config_tb' as tb;
+@use '../../core/config_sp_horizontal' as sph;
+@use '../../core/config_sp' as sp;
+
+// -----------------------------------------------------------------
+// PC layout
+// -----------------------------------------------------------------
+// 必須設定
+.contact-form {
+  position: relative;
+  z-index: 5;
+
+  #formLoading {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  } // formLoading
+
+  .form-section {
+    &.hide {
+      display: none;
+    }
+  } // form-section
+
+  .btn_submit {
+    &.disable {
+      pointer-events: none;
+      background-color: #8f8f8f !important;
+    }
+  } // btn_submit
+
+  .error-message {
+    display: none;
+
+    &.show {
+      display: block;
+    }
+  } // error-message
+} // contact-form
+
+// -----------------------------------------------------------------
+// MAX layout
+// -----------------------------------------------------------------
+@include max {
+}
+
+// -----------------------------------------------------------------
+// TB layout
+// -----------------------------------------------------------------
+@include tb {
+}
+
+// -----------------------------------------------------------------
+// SP Horizontal layout
+// -----------------------------------------------------------------
+@include sp_horizontal {
+}
+
+// -----------------------------------------------------------------
+// SP layout
+// -----------------------------------------------------------------
+@include sp {
+}

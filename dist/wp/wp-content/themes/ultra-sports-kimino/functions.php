@@ -14,7 +14,7 @@
 
 
   // 投稿のスラッグやパーマリンクを変更
-  // require get_template_directory() . '/functions/change-post-setting.php';
+  require get_template_directory() . '/functions/change-post-setting.php';
 
 
   // 再利用ブロックを管理画面メニューに追加

@@ -12,15 +12,12 @@
 
   $outputJS = '';
 
-  // if(is_front_page() || is_home()) {
-  //   $outputJS .= '<script type="module" src="'. $path .'/assets/js/app/top.js"></script>';
-  // }
-  // elseif(is_page('contact')) {
-  //   $outputJS .= '<script type="module" src="'. $path .'/assets/js/app/contact.js"></script>';
-  // }
-  // elseif(is_page('recruit')) {
-  //   $outputJS .= '<script type="module" src="'. $path .'/assets/js/app/recruit.js"></script>';
-  // }
+  if(is_front_page() || is_home()) {
+    $outputJS .= '<script type="module" src="'. $path .'/assets/js/app/top.js"></script>';
+  }
+  elseif(is_page('contact')) {
+    $outputJS .= '<script type="module" src="'. $path .'/assets/js/app/contact.js"></script>';
+  }
 ?>
 <?php //echo_with_indent('<a href="#wrapper" class="btn_pagetop" aria-label="Page Top"></a>', 8); ?>
 <?php echo_with_indent('</main>', 6); ?>

@@ -1,0 +1,22 @@
+# セキュリティ設定
+
+# ディレクトリリスティング禁止
+Options -Indexes
+
+# .envファイルへのアクセス禁止
+<FilesMatch "^\.env">
+    Order allow,deny
+    Deny from all
+</FilesMatch>
+
+# PHPファイルの直接アクセスのみ許可
+<FilesMatch "\.(php)$">
+    Order allow,deny
+    Allow from all
+</FilesMatch>
+
+# その他のファイルへのアクセス禁止
+<FilesMatch "^((?!\.php).)*$">
+    Order allow,deny
+    Deny from all
+</FilesMatch>

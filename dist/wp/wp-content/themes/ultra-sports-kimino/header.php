@@ -53,7 +53,7 @@
 
   // カスタム投稿タイプは個別設定を無視し、1箇所で統一管理
   if ( get_post_type() === 'study' ) {
-    $siteDESCRIPTION = "浄土宗勝巖院が運営する寺子屋メディアのSTUDY（お寺の学校）ページです。";
+    $siteDESCRIPTION = "";
 
     if(is_single()) {
       $excerpt = get_the_excerpt();
@@ -183,7 +183,7 @@
 
   <head>
     <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6QNJ2R5TMJ"></script>
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-QD6W8VTH8P"></script>
     <script>
     window.dataLayer = window.dataLayer || [];
 
@@ -191,8 +191,10 @@
       dataLayer.push(arguments);
     }
     gtag('js', new Date());
-    gtag('config', 'G-6QNJ2R5TMJ');
+
+    gtag('config', 'G-QD6W8VTH8P');
     </script>
+
 
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -261,18 +263,41 @@ EOD;
     <link rel="icon" type="image/png" href="<?= esc_url($site_icon); ?>">
     <?php endif; ?>
 
+    <script>
+    (function(d) {
+      var config = {
+          kitId: 'cbf6kob',
+          scriptTimeout: 3000,
+          async: true
+        },
+        h = d.documentElement,
+        t = setTimeout(function() {
+          h.className = h.className.replace(/\bwf-loading\b/g, "") + " wf-inactive";
+        }, config.scriptTimeout),
+        tk = d.createElement("script"),
+        f = false,
+        s = d.getElementsByTagName("script")[0],
+        a;
+      h.className += " wf-loading";
+      tk.src = 'https://use.typekit.net/' + config.kitId + '.js';
+      tk.async = true;
+      tk.onload = tk.onreadystatechange = function() {
+        a = this.readyState;
+        if (f || a && a != "complete" && a != "loaded") return;
+        f = true;
+        clearTimeout(t);
+        try {
+          Typekit.load(config)
+        } catch (e) {}
+      };
+      s.parentNode.insertBefore(tk, s)
+    })(document);
+    </script>
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <!-- フォントCSSを非同期読み込み -->
-    <link rel="preload" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-noto.min.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/yakuhanjp@3.4.1/dist/css/yakuhanjp-noto.min.css">
-    </noscript>
-
-    <link rel="preload" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript>
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100..900&display=swap">
-    </noscript>
+    <link rel="preload" as="style" fetchpriority="high" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" media="print" onload='this.media="all"'>
 
     <link rel="stylesheet" href="<?php echo $path; ?>/assets/css/main.css" media="all">
 
@@ -286,6 +311,6 @@ EOD;
     <div id="wrapper">
       <div class="page_bg"></div>
 
-      <?php echo get_component_with_indent('component/global-header', 6) ?>
+      <?php echo get_component_with_indent('component/global-header', 6); ?>
 
       <main id="container" <?php echo $isUnder; ?>>

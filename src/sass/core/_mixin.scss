@@ -5,7 +5,7 @@
 // Mixin
 // -----------------------------------------------------------------
 // easing簡易入力
-@mixin easing($duration: 0.4s, $easing: ease, $property: null, $delay: 0s) {
+@mixin easing($duration: 0.3s, $easing: ease, $property: null, $delay: 0s) {
   transition-duration: $duration;
   transition-timing-function: $easing;
   transition-property: $property;
@@ -98,7 +98,8 @@
 }
 
 @mixin gothic {
-  font-family: 'YakuHanJPs', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', 'メイリオ', Meiryo, sans-serif;
+  // font-family: 'YakuHanJPs', 'Noto Sans JP', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', 'メイリオ', Meiryo, sans-serif;
+  font-family: '游ゴシック体', YuGothic, '游ゴシック Medium', 'Yu Gothic Medium', '游ゴシック', 'Yu Gothic', 'Hiragino Kaku Gothic ProN', 'ヒラギノ角ゴ ProN W3', 'メイリオ', Meiryo, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
