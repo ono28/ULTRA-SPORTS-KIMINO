@@ -64,11 +64,13 @@ async function quickSettings() {
   setCurrentNavi();
   setMV();
 
+  await utils.delay(200);
+
   // ローディング
   _loading.classList.add('hide');
   _html.classList.remove('loading');
 
-  await utils.delay(400);
+  await utils.delay(300);
 
   // ScrollClass初期化
   const scrollTargets = document.querySelectorAll('[data-target]');

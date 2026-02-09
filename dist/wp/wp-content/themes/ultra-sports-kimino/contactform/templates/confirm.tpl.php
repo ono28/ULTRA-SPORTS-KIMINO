@@ -3,22 +3,22 @@
   <p>以下の内容で送信します。よろしければ「SEND」ボタンを押してください。</p> -->
 
   <div class="confirm-table">
-    <dl class="form-group confirm">
+    <dl class="form-unit confirm">
       <dt>お名前</dt>
       <dd><?= $name ?></dd>
     </dl>
 
-    <dl class="form-group confirm">
+    <dl class="form-unit confirm">
       <dt>電話番号</dt>
       <dd><?= $tel ?></dd>
     </dl>
 
-    <dl class="form-group confirm">
+    <dl class="form-unit confirm">
       <dt>メールアドレス</dt>
       <dd><?= $email ?></dd>
     </dl>
 
-    <dl class="form-group confirm">
+    <dl class="form-unit confirm">
       <dt>お問合せ内容</dt>
       <dd><?= $message ?></dd>
     </dl>

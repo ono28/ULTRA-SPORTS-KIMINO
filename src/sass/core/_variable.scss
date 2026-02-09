@@ -29,4 +29,9 @@ $yellow: #cfdd3c;
   font-family: 'Inter', sans-serif;
 }
 
+@mixin zenkaku {
+  font-family: 'Zen Kaku Gothic New', sans-serif;
+  font-weight: 400;
+}
+
 $outline: drop-shadow(0.5px 0.5px 0 $black) drop-shadow(-0.5px -0.5px 0 $black) drop-shadow(-0.5px 0.5px 0 $black) drop-shadow(0.5px -0.5px 0 $black);

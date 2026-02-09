@@ -9,3 +9,192 @@
 // -----------------------------------------------------------------
 // TOP layout
 // -----------------------------------------------------------------
+
+// -----------------------------------------------------------------
+// CONTACT layout
+// -----------------------------------------------------------------
+[data-parent='contact'] {
+  background-color: $white;
+
+  .page_header {
+    margin-bottom: vw(110);
+  }
+
+  .form-buttons {
+    display: flex;
+    justify-content: space-between;
+    flex-shrink: 0;
+
+    .btn {
+      @include easing($property: #{'background,color'});
+      mask: url(../img/common/logo_icon.webp) no-repeat 0 0;
+      mask-size: 100% 100%;
+      background-color: $black;
+      width: vw(210);
+      height: vw(61);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      font-weight: bold;
+      color: $white;
+
+      &:after {
+        @include easing($property: background);
+        mask: url(../img/common/ic_arrow_link.webp) no-repeat 0 0;
+        mask-size: 100% 100%;
+        background-color: $white;
+        content: '';
+        display: block;
+        width: vw(9);
+        height: vw(13);
+        position: absolute;
+        top: 50%;
+        right: vw(20);
+        margin-top: vw(-6.5);
+      }
+
+      @include hover {
+        background-color: $yellow;
+      }
+
+      &.back {
+        background-color: $lightgray;
+        color: $black;
+
+        &:after {
+          transform: scaleX(-1);
+          background-color: $black;
+          left: vw(20);
+          right: auto;
+        }
+
+        @include hover {
+          background-color: $black;
+          color: $white;
+
+          &:after {
+            background-color: $white;
+          }
+        }
+      }
+    }
+  }
+
+  // 共通設定
+  .form-group {
+    width: 100%;
+  }
+
+  #formLoading {
+    margin-top: vw(30);
+    font-size: vw(12);
+  }
+
+  .form-unit {
+    width: 100%;
+
+    dt {
+      margin-bottom: vw(15);
+
+      label {
+        display: flex;
+        align-items: center;
+        column-gap: vw(24);
+      }
+
+      .required {
+        font-size: vw(14);
+        color: #ff5800;
+      }
+    }
+
+    input[type='text'],
+    input[type='email'],
+    input[type='password'],
+    input[type='tel'] {
+      border-bottom: 1px solid $black;
+      display: block;
+      width: 100%;
+      padding: vw(10) 0 vw(20);
+    }
+
+    textarea {
+      padding: vw(30);
+      border: 1px solid $black;
+      width: 100%;
+      height: vw(430);
+      line-height: 2;
+    }
+  }
+
+  // 入力画面
+  #form-area {
+    .error-message {
+      font-size: vw(14);
+      color: #ff5800;
+      margin-top: vw(10);
+    }
+
+    .form-container {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      row-gap: vw(62);
+      margin-bottom: vw(30);
+      width: vw(814);
+    }
+
+    .form-column {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      column-gap: vw(68);
+    }
+
+    .form-footer {
+      width: vw(814);
+      display: flex;
+      justify-content: space-between;
+      column-gap: vw(132);
+
+      p {
+        line-height: 2;
+        font-size: vw(14);
+      }
+    }
+  } // form-area
+
+  // 確認画面
+  #confirm-area {
+    width: vw(670);
+
+    .confirm-table {
+      display: flex;
+      flex-direction: column;
+      row-gap: vw(52);
+      margin-bottom: vw(74);
+    }
+
+    .form-unit.confirm {
+      dt {
+        margin-bottom: vw(20);
+      }
+
+      dd {
+        line-height: 1.8;
+      }
+    }
+  } // confirm-area
+
+  // 完了画面
+  #complete-area {
+    width: vw(790);
+
+    p {
+      font-size: vw(18);
+      line-height: 1.8;
+      margin-bottom: vw(77);
+    }
+  } // complete-area
+}

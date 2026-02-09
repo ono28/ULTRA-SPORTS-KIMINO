@@ -17,7 +17,10 @@ html {
 }
 
 body {
-  @include gothic;
+  @include zenkaku;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   background-color: $lightgray;
   color: $black;
   font-size: vw(16);
@@ -48,7 +51,7 @@ body {
 // -----------------------------------------------------------------
 #loading {
   @include easing($duration: 0.4s, $property: #{'opacity,visibility'});
-  background: $lightgray;
+  background: $white;
   position: fixed;
   top: 0;
   left: 0;
@@ -90,15 +93,20 @@ body {
   }
 
   .logo {
-    @include easing($property: transform);
     width: vw(140);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     row-gap: vw(9);
 
+    .l_icon {
+      @include easing($property: background);
+    }
+
     @include hover {
-      transform: scale(1.05);
+      .l_icon {
+        background-color: $yellow;
+      }
     }
   }
 } // globalHeader
@@ -131,10 +139,10 @@ body {
     column-gap: vw(40);
 
     a {
-      @include easing($property: opacity);
+      @include easing($property: color);
 
       @include hover {
-        opacity: 0.5;
+        color: $yellow;
       }
     }
   }
@@ -228,7 +236,6 @@ body {
 // Global Footer Layout
 // -----------------------------------------------------------------
 #globalFooter {
-  background-color: $lightgray;
   position: relative;
   padding: vw(200) 0 vw(80);
 
@@ -298,13 +305,13 @@ body {
       row-gap: vw(30);
 
       a {
-        @include easing($property: opacity);
         display: flex;
         flex-direction: column;
         row-gap: vw(4);
         line-height: 1.5;
 
         .en {
+          @include easing($property: color);
           @include inter;
           font-size: vw(24);
           font-weight: 500;
@@ -317,7 +324,9 @@ body {
         }
 
         @include hover {
-          opacity: 0.5;
+          .en {
+            color: $yellow;
+          }
         }
       }
     }
@@ -326,7 +335,7 @@ body {
       column-gap: vw(25);
 
       a {
-        @include easing($property: transform);
+        @include easing($property: background);
         background-color: $gray;
         width: vw(62);
         height: vw(62);
@@ -336,7 +345,7 @@ body {
         justify-content: center;
 
         @include hover {
-          transform: scale(1.1);
+          background-color: $yellow;
         }
       }
     }
