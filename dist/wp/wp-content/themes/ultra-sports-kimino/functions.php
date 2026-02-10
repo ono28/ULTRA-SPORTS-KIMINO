@@ -48,3 +48,17 @@
     }
     return $use_block_editor;
   },10,2);
+
+  // NEWSループ制御
+  function custom_posts_pre_get_posts( $query ) {
+    if ( ! $query->is_main_query() ) {
+      return;
+    }
+
+    if ( $query->is_home() || $query->is_category() ) {
+      $query->set( 'post_type', 'post' );
+      $query->set( 'posts_per_page', 15 );
+    }
+
+  }
+  add_action( 'pre_get_posts', 'custom_posts_pre_get_posts' );

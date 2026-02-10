@@ -67,9 +67,21 @@
 
 
   // bodyのid/class設定
-  if(is_front_page() || is_home()) {
+  if(is_front_page()) {
     $pageSTATUS = 'data-parent="top"';
     $namespace = 'top';
+  }
+  elseif(is_home()) {
+    $pageSTATUS = 'data-parent="news" data-child="index"';
+    $namespace = 'news';
+  }
+  elseif(is_category() || is_tag()) {
+    $pageSTATUS = 'data-parent="news" data-child="index"';
+    $namespace = 'news';
+  }
+  elseif(is_singular('post')) {
+    $pageSTATUS = 'data-parent="news" data-child="detail"';
+    $namespace = 'news';
   }
   elseif(is_page()) {
     $parent_id = get_the_ID();
@@ -102,8 +114,29 @@
   }
 
   // title設定
-  if (is_front_page() || is_home()) {
+  if (is_front_page() ) {
     $pageTITLE = $siteNAME . $defaultTile;
+  }
+  elseif (is_home() ) {
+    // 投稿ページが固定ページの場合はそのタイトルを取得
+    $post_page_id = get_option('page_for_posts');
+    if ($post_page_id) {
+      $pageTITLE = get_the_title($post_page_id) . ' | ' . $siteNAME . $defaultTile;
+    } else {
+      $pageTITLE = $siteNAME . $defaultTile;
+    }
+  }
+  elseif (is_category() || is_tag()) {
+    // NEWSカテゴリー一覧ページ
+    $post_page_id = get_option('page_for_posts');
+    $news_title = $post_page_id ? get_the_title($post_page_id) : '';
+    $pageTITLE = single_cat_title('', false) . ' | ' . $news_title . ' | ' . $siteNAME . $defaultTile;
+  }
+  elseif(is_singular('post')) {
+    // 投稿ページ（NEWS）の固定ページIDを取得
+    $post_page_id = get_option('page_for_posts');
+    $news_title = $post_page_id ? get_the_title($post_page_id) : '';
+    $pageTITLE = get_the_title() . ' | ' . $news_title . ' | ' . $siteNAME . $defaultTile;
   }
   elseif (is_page()) {
     global $post;

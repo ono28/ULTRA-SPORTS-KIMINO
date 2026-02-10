@@ -363,27 +363,6 @@ body {
 #wrapper {
   position: relative;
   font-feature-settings: 'palt';
-
-  // デバッグ用のガイド
-  // &:before,
-  // &:after {
-  //   background-color: #f0f;
-  //   content: '';
-  //   display: block;
-  //   width: 1px;
-  //   height: 100%;
-  //   position: fixed;
-  //   top: 0;
-  //   left: 50%;
-  //   pointer-events: none;
-  //   z-index: 999;
-  // }
-  // &:before {
-  //   margin-left: vw(-704);
-  // }
-  // &:after {
-  //   margin-left: vw(704);
-  // }
 } // wrapper
 
 // -----------------------------------------------------------------
@@ -394,24 +373,22 @@ body {
   padding-top: vw(300);
   padding-bottom: vw(200);
 
-  // デバッグ用のガイド
-  // &:before,
-  // &:after {
-  //   background-color: #00f;
-  //   content: '';
-  //   display: block;
-  //   width: 1px;
-  //   height: 100%;
-  //   position: fixed;
-  //   top: 0;
-  //   left: 50%;
-  //   pointer-events: none;
-  //   z-index: 999;
-  // }
-  // &:before {
-  //   margin-left: vw(-640);
-  // }
-  // &:after {
-  //   margin-left: vw(640);
-  // }
+  &:before {
+    background-image: linear-gradient(to bottom, $gray2 vw(4), transparent vw(4));
+    background-size: 1px vw(8);
+    background-repeat: repeat-y;
+    background-position: 100% 0;
+    content: '';
+    display: block;
+    width: 1px;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    pointer-events: none;
+    z-index: 0;
+  }
+  &:before {
+    margin-left: vw(-620);
+  }
 } // container

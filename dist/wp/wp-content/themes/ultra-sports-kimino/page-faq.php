@@ -20,7 +20,7 @@
     <?php if(have_rows('faq_section')): ?>
     <?php while(have_rows('faq_section')): the_row(); ?>
 
-    <section class="faq_section">
+    <section class="faq_section" data-target data-slideup>
       <h2 class="faq_title"><?php the_sub_field('faq_section_title'); ?></h2>
       <div class="faq_lists">
         <?php if(have_rows('faq')): ?>

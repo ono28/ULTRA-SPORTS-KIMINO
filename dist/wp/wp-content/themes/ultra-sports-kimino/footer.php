@@ -12,7 +12,7 @@
 
   $outputJS = '';
 
-  if(is_front_page() || is_home()) {
+  if(is_front_page()) {
     $outputJS .= '<script type="module" src="'. $path .'/assets/js/app/top.js"></script>';
   }
   elseif(is_page('contact')) {
