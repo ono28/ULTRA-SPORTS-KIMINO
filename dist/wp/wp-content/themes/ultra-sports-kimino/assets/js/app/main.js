@@ -30,27 +30,21 @@ function setCurrentNavi() {
   }
 }
 
-// MV
-async function setMV() {
-  const _mv = document.getElementById('mv');
-  if (!_mv) return;
+// アコーディオン
+function setAccordion() {
+  const _acc = document.querySelectorAll('.acc');
+  if (_acc.length == 0) return;
 
-  const _mo1 = _mv.querySelector('.mo1');
-  const _mo2 = _mv.querySelector('.mo2');
-  const _txt = _mv.querySelector('.mv_txt');
-  const _news = _mv.querySelector('.mv_news');
-  const _scroll = _mv.querySelector('.ic_scroll');
+  _acc.forEach((el) => {
+    const _accTrigger = el.querySelector('.acc_trigger');
+    const _accBody = el.querySelector('.acc_body');
 
-  await utils.delay(400);
-  _mo1.classList.add('active');
-  _mo2.classList.add('active');
+    utils.slideUp(_accBody, 0);
 
-  await utils.delay(800);
-  _txt.classList.add('active');
-
-  await utils.delay(800);
-  _news.classList.add('active');
-  _scroll.classList.add('active');
+    _accTrigger.addEventListener('click', () => {
+      utils.slideToggle(_accBody, 300);
+    });
+  });
 }
 
 // ----------------------------------------------------------
@@ -62,7 +56,7 @@ async function quickSettings() {
 
   // 関数初期化
   setCurrentNavi();
-  setMV();
+  setAccordion();
 
   await utils.delay(200);
 

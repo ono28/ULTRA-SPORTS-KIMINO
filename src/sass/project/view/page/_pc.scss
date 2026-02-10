@@ -11,6 +11,127 @@
 // -----------------------------------------------------------------
 
 // -----------------------------------------------------------------
+// FAQ layout
+// -----------------------------------------------------------------
+[data-parent='faq'] {
+  .page_header {
+    margin-bottom: vw(100);
+  }
+
+  .faq_container {
+    max-width: vw(1008);
+    display: flex;
+    flex-direction: column;
+    row-gap: vw(80);
+  }
+
+  .faq_section {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    column-gap: vw(85);
+
+    .faq_title {
+      text-align: right;
+      width: vw(150);
+      flex-shrink: 0;
+      font-size: vw(18);
+      font-weight: bold;
+    }
+
+    .faq_lists {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      row-gap: vw(24);
+    }
+
+    .faq_unit {
+      background-image: linear-gradient(to right, $gray2 vw(4), transparent vw(4));
+      background-size: vw(8) 1px;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+
+      dt,
+      dd {
+        position: relative;
+        padding-left: vw(40);
+
+        &:before {
+          @include inter;
+          font-size: vw(22);
+          font-weight: 500;
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
+      }
+
+      dt {
+        font-size: vw(18);
+
+        &:before {
+          content: 'Q';
+        }
+
+        button {
+          @include easing($property: #{'color'});
+          width: 100%;
+          position: relative;
+          text-align: left;
+          padding-bottom: vw(24);
+
+          &:after {
+            @include easing($property: #{'transform,background'});
+            mask: url(../img/common/ic_arrow_link.webp) no-repeat 0 0;
+            mask-size: 100% 100%;
+            background-color: $black;
+            content: '';
+            display: block;
+            width: vw(15);
+            height: vw(20);
+            position: absolute;
+            top: 0;
+            right: 0;
+          }
+
+          @include hover {
+            &:after {
+              background-color: $yellow;
+            }
+          }
+        }
+      }
+
+      dd {
+        padding-bottom: vw(24);
+        padding-right: vw(160);
+
+        &:before {
+          content: 'A';
+          top: 0.2em;
+        }
+
+        > * {
+          font-size: vw(16);
+          line-height: 1.8;
+        }
+      }
+
+      &.active {
+        dt {
+          button {
+            &:after {
+              transform: rotate(-90deg);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+// -----------------------------------------------------------------
 // CONTACT layout
 // -----------------------------------------------------------------
 [data-parent='contact'] {

@@ -89,13 +89,13 @@ export const utils = {
     }, duration);
   },
 
-  slideToggle: function (target) {
+  slideToggle: function (target, duration = 500) {
     target.parentElement.classList.toggle('active');
 
     if (window.getComputedStyle(target).display === 'none') {
-      return this.slideDown(target);
+      return this.slideDown(target, duration);
     } else {
-      return this.slideUp(target);
+      return this.slideUp(target, duration);
     }
   },
 
