@@ -1,3 +1,7 @@
+import { Splide } from '@splidejs/splide';
+import { AutoScroll } from '@splidejs/splide-extension-auto-scroll';
+import { Intersection } from '@splidejs/splide-extension-intersection';
+import '@splidejs/splide/css/core';
 import ScrollClass from './class/scrollClass.js';
 import { utils } from './utils/util.js';
 
@@ -47,6 +51,48 @@ function setAccordion() {
   });
 }
 
+// splide
+function setSplide() {
+  const _splide = document.querySelectorAll('.splide');
+  if (_splide.length == 0) return;
+
+  _splide.forEach((el) => {
+    const slide = new Splide(el, {
+      type: 'loop',
+      arrows: false,
+      pagination: false,
+      drag: false,
+      autoWidth: true,
+      autoScroll: {
+        speed: 1,
+        pauseOnHover: false,
+      },
+      intersection: {
+        inView: {
+          autoScroll: true,
+        },
+        outView: {
+          autoScroll: false,
+        },
+      },
+      breakpoints: {
+        760: {
+          autoScroll: {
+            speed: 0.7,
+          },
+        },
+      },
+    });
+
+    slide.on('mounted', () => {
+      el.querySelectorAll('[data-lzy]').forEach((el) => {
+        APP.LZY.update(el);
+      });
+    });
+    slide.mount({ AutoScroll, Intersection });
+  });
+}
+
 // ----------------------------------------------------------
 // 初期化
 // ----------------------------------------------------------
@@ -57,6 +103,7 @@ async function quickSettings() {
   // 関数初期化
   setCurrentNavi();
   setAccordion();
+  setSplide();
 
   await utils.delay(200);
 

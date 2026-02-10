@@ -67,7 +67,7 @@
     </h2>
 
     <div class="contents">
-      <ol>
+      <ol class="precautions_lists">
         <li data-target data-slideup>
           利用資格と申込手続き
 
