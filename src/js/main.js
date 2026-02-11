@@ -130,4 +130,21 @@ _html.classList.add('loading');
 
 window.addEventListener('DOMContentLoaded', () => {
   quickSettings();
+
+  // アンカーリンクがある場合、#globalHeaderの高さ分オフセットしてスクロール
+  if (window.location.hash) {
+    const id = window.location.hash.substring(1);
+    const target = document.getElementById(id);
+    const header = document.getElementById('globalHeader');
+    if (target && header) {
+      // ページ描画後にスクロール（遅延実行）
+      setTimeout(() => {
+        const headerHeight = header.offsetHeight;
+        const rect = target.getBoundingClientRect();
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const top = rect.top + scrollTop - headerHeight;
+        window.scrollTo({ top, behavior: 'auto' });
+      }, 10);
+    }
+  }
 });

@@ -62,29 +62,8 @@
   <?php if(have_posts()): ?>
 
   <ul class="news_lists" data-target data-slideup>
-    <?php
-      while(have_posts()): the_post();
-      $terms = get_the_terms($post->ID, 'category');
-    ?>
-
-    <li class="post">
-      <a href="<?php the_permalink(); ?>">
-        <div class="date" datetime="<?php the_time('Y-m-d'); ?>"><?php the_time('Y.m.d'); ?></div>
-        <?php if($terms): ?>
-
-        <div class="tags">
-          <?php
-            foreach( $terms as $term ) {
-              echo '<span>'.$term->name.'</span>';
-            }
-          ?>
-
-        </div>
-        <?php endif; ?>
-
-        <div class="title"><?php the_title(); ?></div>
-      </a>
-    </li>
+    <?php while(have_posts()): the_post(); ?>
+    <?php echo get_component_with_indent('component/thumb_news', 4); ?>
     <?php endwhile; ?>
 
   </ul>

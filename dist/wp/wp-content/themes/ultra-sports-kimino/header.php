@@ -260,6 +260,28 @@ echo <<< EOD
     <meta name="twitter:image:src" content="{$og_image}">
 EOD;
 }
+elseif (is_singular('post')) {
+  $permalink = get_permalink();
+  $og_image = "{$path}/assets/img/ogp.jpg";
+  $siteDESCRIPTION = get_the_excerpt(); // 抜粋をdescriptionに
+
+  if (has_post_thumbnail()) {
+    $thumb = get_the_post_thumbnail_url(get_the_ID(), 'full');
+    if ($thumb) {
+      $og_image = esc_url($thumb);
+    }
+  }
+echo <<< EOD
+<meta property="og:title" content="{$pageTITLE}">
+    <meta property="og:description" content="{$siteDESCRIPTION}">
+    <meta property="og:url" content="{$permalink}">
+    <meta property="og:type" content="article">
+    <meta property="og:image" content="{$og_image}">
+    <meta name="twitter:title" content="{$pageTITLE}">
+    <meta name="twitter:description" content="{$siteDESCRIPTION}">
+    <meta name="twitter:image:src" content="{$og_image}">
+EOD;
+}
 elseif(is_page()){
   $permalink = get_permalink();
 echo <<< EOD
@@ -267,10 +289,10 @@ echo <<< EOD
     <meta property="og:description" content="{$ogDESCRIPTION}">
     <meta property="og:url" content="{$permalink}">
     <meta property="og:type" content="website">
-    <meta property="og:image" content="{$path}/assets/img/ogp.png">
+    <meta property="og:image" content="{$path}/assets/img/ogp.jpg">
     <meta name="twitter:title" content="{$pageTITLE}">
     <meta name="twitter:description" content="{$ogDESCRIPTION}">
-    <meta name="twitter:image:src" content="{$path}/assets/img/ogp.png">
+    <meta name="twitter:image:src" content="{$path}/assets/img/ogp.jpg">
 EOD;
 }
 else {
@@ -282,7 +304,7 @@ echo <<< EOD
     <meta property="og:image" content="{$path}/assets/img/ogp.png">
     <meta name="twitter:title" content="{$pageTITLE}">
     <meta name="twitter:description" content="{$siteDESCRIPTION}">
-    <meta name="twitter:image:src" content="{$path}/assets/img/ogp.png">
+    <meta name="twitter:image:src" content="{$path}/assets/img/ogp.jpg">
 EOD;
 }
 ?>

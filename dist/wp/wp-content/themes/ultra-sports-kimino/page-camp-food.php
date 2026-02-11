@@ -124,7 +124,7 @@
     <div class="contents" data-target data-slideup>
       <div class="table_area">
         <div class="scroll_area">
-          <table>
+          <table class="color_table">
             <thead>
               <tr>
                 <th class="white"></th>
@@ -237,7 +237,7 @@
     </div>
   </section>
 
-  <section class="food">
+  <section class="food" id="food">
     <div class="white_bg"></div>
 
     <h2 class="sec_title" data-target data-slideup>
@@ -287,17 +287,7 @@
       </div>
     </div>
 
-    <div class="buttons" data-target data-slideup>
-      <a href="#" target="_blank" class="btn_reserve">
-        <span class="en">RESERVE FACILITY</span>
-        <span class="ja">施設のご予約はこちら</span>
-      </a>
-
-      <a href="#" target="_blank" class="btn_reserve">
-        <span class="en">RESERVE CAMP</span>
-        <span class="ja">宿泊のご予約はこちら</span>
-      </a>
-    </div>
+    <?php echo get_component_with_indent('component/reserve-buttons', 4); ?>
   </section>
 </div>
 
