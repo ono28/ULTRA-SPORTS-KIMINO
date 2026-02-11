@@ -10,4 +10,554 @@
 // MAX size layout
 // -----------------------------------------------------------------
 @include max {
+  // -----------------------------------------------------------------
+  // Parts layout
+  // -----------------------------------------------------------------
+  .l_icon {
+    mask: url(../img/common/logo_icon.webp) no-repeat 0 0;
+    mask-size: 100% 100%;
+    background-color: $black;
+    display: block;
+    width: vw(140);
+    height: vw(50);
+  } // l_icon
+
+  .l_text {
+    mask: url(../img/common/logo_text.webp) no-repeat 0 0;
+    mask-size: 100% 100%;
+    background-color: $black;
+    display: block;
+    width: vw(140);
+    height: vw(10);
+  } // l_text
+
+  .sns {
+    display: flex;
+    align-items: center;
+
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+
+      &:before {
+        mask-position: 0 0;
+        mask-repeat: no-repeat;
+        mask-size: 100% 100%;
+        background-color: $black;
+        content: '';
+        display: block;
+      }
+    }
+
+    .yt {
+      &:before {
+        mask-image: url(../img/common/ic_yt.webp);
+        width: vw(24);
+        height: vw(17);
+      }
+    }
+
+    .ig {
+      &:before {
+        mask-image: url(../img/common/ic_ig.webp);
+        width: vw(20);
+        height: vw(20);
+      }
+    }
+  } // sns
+
+  .page_title {
+    display: flex;
+    align-items: flex-end;
+    column-gap: vw(26);
+
+    .en {
+      @include inter;
+      font-size: vw(90);
+      font-weight: 700;
+      letter-spacing: 0.01em;
+      text-indent: -0.05em;
+      line-height: vw(65);
+    }
+
+    .ja {
+      font-size: vw(18);
+    }
+  } // page_title
+
+  .page_header {
+    background-image: linear-gradient(to right, $gray2 vw(4), transparent vw(4));
+    background-size: vw(8) 1px;
+    background-repeat: repeat-x;
+    background-position: 0 100%;
+
+    .page_title {
+      max-width: vw(1240);
+      margin-inline: auto;
+    }
+  } // page_header
+
+  .page_container {
+    position: relative;
+    max-width: vw(1240);
+    margin-inline: auto;
+  } // page_container
+
+  .sec_title {
+    position: relative;
+    display: flex;
+    align-items: flex-end;
+    column-gap: vw(20);
+    margin-bottom: vw(50);
+
+    &:after {
+      background-image: linear-gradient(to right, $gray2 vw(4), transparent vw(4));
+      background-size: vw(8) 1px;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+      content: '';
+      display: block;
+      width: 100vw;
+      height: 1px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      pointer-events: none;
+    }
+
+    .en {
+      @include inter;
+
+      &:nth-child(1) {
+        font-size: vw(58);
+        font-weight: 500;
+        margin-bottom: -0.12em;
+      }
+
+      &:nth-child(2) {
+        font-size: vw(18);
+        font-weight: bold;
+        letter-spacing: 0.03em;
+      }
+    }
+
+    .ja {
+      font-weight: bold;
+
+      &:nth-child(1) {
+        font-size: vw(48);
+      }
+
+      &:nth-child(2) {
+        font-size: vw(18);
+        letter-spacing: 0.2em;
+      }
+    }
+  } // sec_title
+
+  .precautions_lists {
+    margin-left: 1em;
+    line-height: 1.8;
+    padding-left: vw(10);
+    display: flex;
+    flex-direction: column;
+    row-gap: vw(30);
+
+    > li {
+      list-style: decimal;
+      font-size: vw(20);
+    }
+
+    ul {
+      font-size: vw(16);
+
+      li {
+        display: flex;
+        column-gap: vw(5);
+
+        &:before {
+          content: '-';
+        }
+      }
+    }
+  } // precautions_lists
+
+  .dot_bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 5;
+
+    &:before {
+      background-image: linear-gradient(to right, $gray2 vw(2), transparent vw(2)), linear-gradient(to right, $gray2 vw(2), transparent vw(2)), linear-gradient(to bottom, $gray2 vw(2), transparent vw(2)), linear-gradient(to bottom, $gray2 vw(2), transparent vw(2));
+      background-size:
+        vw(4) 1px,
+        vw(4) 1px,
+        1px vw(4),
+        1px vw(4);
+      background-repeat: repeat-x, repeat-x, repeat-y, repeat-y;
+      background-position:
+        0 0,
+        0 100%,
+        0 0,
+        100% 0;
+
+      content: '';
+      display: block;
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .dot_line {
+      background-image: linear-gradient(to right, $gray2 vw(2), transparent vw(2));
+      background-size: vw(4) 1px;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+      position: absolute;
+      width: 100%;
+      height: 1px;
+
+      &.lt {
+        transform: translate(-50%, -50%) rotate(-45deg);
+      }
+
+      &.rt {
+        transform: translate(50%, -50%) rotate(45deg);
+      }
+
+      &.lb {
+        transform: translate(-50%, 0) rotate(45deg);
+        bottom: 0;
+      }
+
+      &.rb {
+        transform: translate(50%, 0) rotate(-45deg);
+        bottom: 0;
+      }
+    }
+  } // dot_bg
+
+  .white_bg {
+    background-color: $white;
+    position: absolute;
+    top: 0;
+    left: vw(-100);
+    z-index: -2;
+    pointer-events: none;
+    width: calc(100% + #{vw(200)});
+    height: 100%;
+  } // white_bg
+
+  .reserve_buttons {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    column-gap: vw(90);
+
+    .btn_reserve {
+      @include easing($property: #{'background,color'});
+      mask: url(../img/common/logo_icon.webp) no-repeat 0 0;
+      mask-size: 100% 100%;
+      background-color: $yellow;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      row-gap: vw(6);
+      position: relative;
+      width: vw(406);
+      height: vw(118);
+
+      &:after {
+        @include easing($property: background);
+        mask: url(../img/common/ic_arrow_link.webp) no-repeat 0 0;
+        mask-size: 100% 100%;
+        background-color: $black;
+        content: '';
+        display: block;
+        width: vw(19);
+        height: vw(27);
+        position: absolute;
+        top: 50%;
+        right: vw(35);
+        margin-top: vw(-14);
+      }
+
+      .en {
+        @include inter;
+        font-size: vw(20);
+        font-weight: 500;
+        letter-spacing: 0.2em;
+      }
+
+      .ja {
+        font-size: vw(18);
+        font-weight: bold;
+      }
+
+      @include hover {
+        background-color: $black;
+        color: $white;
+
+        &:after {
+          background-color: $white;
+        }
+      }
+    }
+  } // reserve_buttons
+
+  .color_table {
+    border-collapse: separate;
+    border-spacing: vw(4);
+
+    th,
+    td {
+      width: vw(203);
+      height: vw(103);
+      text-align: center;
+      vertical-align: middle;
+      font-size: vw(20);
+      position: relative;
+      line-height: 1.8;
+
+      &:before {
+        clip-path: polygon(vw(12) 0%, calc(100% - #{vw(12)}) 0%, 100% vw(12), 100% calc(100% - #{vw(12)}), calc(100% - #{vw(12)}) 100%, vw(12) 100%, 0% calc(100% - #{vw(12)}), 0% vw(12));
+        content: '';
+        display: block;
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+
+      span {
+        font-size: vw(16);
+        display: block;
+      }
+
+      &.white {
+        font-size: vw(18);
+
+        &:before {
+          background-color: $white;
+        }
+      }
+
+      &.yellow {
+        &:before {
+          background-color: $yellow;
+        }
+      }
+    }
+  } // color_table
+
+  .news_lists {
+    background-image: linear-gradient(to right, $gray2 vw(4), transparent vw(4));
+    background-size: vw(8) 1px;
+    background-repeat: repeat-x;
+    background-position: 0 0;
+
+    .post {
+      background-image: linear-gradient(to right, $gray2 vw(4), transparent vw(4));
+      background-size: vw(8) 1px;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+
+      a {
+        display: flex;
+        align-items: center;
+        padding: vw(24) vw(60) vw(24) 0;
+        position: relative;
+
+        &:after {
+          @include easing($property: background);
+          mask: url(../img/common/ic_arrow_link.webp) no-repeat 0 0;
+          mask-size: 100% 100%;
+          background-color: $black;
+          content: '';
+          display: block;
+          width: vw(17);
+          height: vw(23);
+          position: absolute;
+          top: 50%;
+          right: vw(40);
+          margin-top: vw(-12);
+        }
+
+        @include hover {
+          &:after {
+            background-color: $yellow;
+          }
+        }
+      }
+
+      .date {
+        @include inter;
+        font-size: vw(14);
+        font-weight: bold;
+        margin-right: vw(22);
+        flex-shrink: 0;
+      }
+
+      .tags {
+        display: flex;
+        align-items: center;
+        column-gap: vw(24);
+        margin-right: vw(98);
+
+        span {
+          @include inter;
+          filter: $outline;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          width: vw(112);
+          height: vw(33);
+          font-size: vw(14);
+
+          &:before {
+            @include easing($property: background);
+            clip-path: polygon(vw(10) 0%, calc(100% - #{vw(10)}) 0%, 100% vw(10), 100% calc(100% - #{vw(10)}), calc(100% - #{vw(10)}) 100%, vw(10) 100%, 0% calc(100% - #{vw(10)}), 0% vw(10));
+            background-color: $white;
+            content: '';
+            display: block;
+            width: calc(100% - 2px);
+            height: calc(100% - 2px);
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            z-index: -1;
+          }
+        }
+      }
+
+      .title {
+        font-size: vw(18);
+        line-height: 1.5;
+      }
+    }
+  } // news_lists
+
+  .btn_more {
+    @include easing($property: #{'background,color'});
+    @include inter;
+    mask: url(../img/common/logo_icon.webp) no-repeat 0 0;
+    mask-size: 100% 100%;
+    background-color: $black;
+    width: vw(176);
+    height: vw(51);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    font-weight: bold;
+    color: $white;
+
+    &:after {
+      @include easing($property: background);
+      mask: url(../img/common/ic_arrow_link.webp) no-repeat 0 0;
+      mask-size: 100% 100%;
+      background-color: $white;
+      content: '';
+      display: block;
+      width: vw(8);
+      height: vw(12);
+      position: absolute;
+      top: 50%;
+      right: vw(18);
+      margin-top: vw(-6);
+    }
+
+    @include hover {
+      background-color: $yellow;
+      color: $black;
+
+      &:after {
+        background-color: $black;
+      }
+    }
+  } // btn_more
+
+  .access_contents {
+    padding-left: vw(100);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    column-gap: vw(70);
+
+    .map {
+      width: vw(420);
+      flex-shrink: 0;
+    }
+
+    .txt {
+      display: flex;
+      flex-direction: column;
+      row-gap: vw(62);
+      width: 100%;
+
+      dl {
+        background-image: linear-gradient(to right, $gray2 vw(4), transparent vw(4));
+        background-size: vw(8) 1px;
+        background-repeat: repeat-x;
+        background-position: 0 100%;
+        padding-bottom: vw(62);
+        display: flex;
+        justify-content: space-between;
+        line-height: 1.8;
+
+        &:last-of-type {
+          background: none;
+          padding-bottom: 0;
+        }
+
+        dt {
+          @include inter;
+          font-size: vw(24);
+          font-weight: 400;
+          width: vw(150);
+          color: $green;
+          flex-shrink: 0;
+        }
+
+        dd {
+          width: 100%;
+          font-size: vw(18);
+          display: flex;
+          flex-direction: column;
+          row-gap: vw(20);
+        }
+      }
+
+      .pin {
+        display: flex;
+        align-items: center;
+        column-gap: vw(5);
+        text-decoration: underline;
+
+        &:after {
+          background: url(../img/common/ic_pin.webp) no-repeat 0 0;
+          background-size: 100% 100%;
+          content: '';
+          display: block;
+          width: vw(15);
+          height: vw(18);
+        }
+
+        @include hover {
+          text-decoration: none;
+        }
+      }
+    }
+  } // access_contents
 } // max

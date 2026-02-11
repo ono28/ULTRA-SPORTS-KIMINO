@@ -39,12 +39,6 @@
   }
 }
 
-@mixin xl {
-  @media screen and (min-width: #{$XL}px) {
-    @content;
-  }
-}
-
 @mixin max {
   @media screen and (min-width: #{$MAX}px) {
     @content;
