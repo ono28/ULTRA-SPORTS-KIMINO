@@ -69,6 +69,7 @@ body {
 // Global Header Layout
 // -----------------------------------------------------------------
 #globalHeader {
+  @include easing($property: background);
   background-color: $white;
   width: 100%;
   height: vw(128);
@@ -80,6 +81,7 @@ body {
   padding-left: vw(32);
 
   &:before {
+    @include easing($property: background);
     clip-path: polygon(0 0, 100% 0, calc(100% - #{vw(34)}) 100%, 0% 100%);
     background-color: $white;
     content: '';
@@ -90,6 +92,14 @@ body {
     bottom: vw(-33.5);
     left: 0;
     pointer-events: none;
+  }
+
+  &.white {
+    background-color: $white !important;
+
+    &:before {
+      background-color: $white !important;
+    }
   }
 
   .logo {

@@ -11,6 +11,7 @@ import { utils } from './utils/util.js';
 const _html = document.documentElement;
 const _body = document.body;
 const _loading = document.getElementById('loading');
+const _gHeader = document.getElementById('globalHeader');
 
 // ----------------------------------------------------------
 // グローバルAPI
@@ -93,6 +94,17 @@ function setSplide() {
   });
 }
 
+// header
+function setHeader() {
+  window.addEventListener('scroll', () => {
+    if (window.scrollY > 100) {
+      _gHeader.classList.add('white');
+    } else {
+      _gHeader.classList.remove('white');
+    }
+  });
+}
+
 // ----------------------------------------------------------
 // 初期化
 // ----------------------------------------------------------
@@ -104,6 +116,7 @@ async function quickSettings() {
   setCurrentNavi();
   setAccordion();
   setSplide();
+  setHeader();
 
   await utils.delay(200);
 
@@ -135,11 +148,11 @@ window.addEventListener('DOMContentLoaded', () => {
   if (window.location.hash) {
     const id = window.location.hash.substring(1);
     const target = document.getElementById(id);
-    const header = document.getElementById('globalHeader');
-    if (target && header) {
+
+    if (target && _gHeader) {
       // ページ描画後にスクロール（遅延実行）
       setTimeout(() => {
-        const headerHeight = header.offsetHeight;
+        const headerHeight = _gHeader.offsetHeight;
         const rect = target.getBoundingClientRect();
         const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
         const top = rect.top + scrollTop - headerHeight;

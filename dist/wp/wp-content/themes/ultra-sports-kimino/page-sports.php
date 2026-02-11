@@ -233,7 +233,7 @@
     </div>
   </section>
 
-  <section class="facility">
+  <section class="facility" id="facility">
     <h2 class="sec_title" data-target data-slideup>
       <span class="en">FACILITY</span>
       <span class="ja">施設案内</span>

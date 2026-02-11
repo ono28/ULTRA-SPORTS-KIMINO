@@ -443,3 +443,116 @@
     }
   }
 } // news_lists
+
+.btn_more {
+  @include easing($property: #{'background,color'});
+  @include inter;
+  mask: url(../img/common/logo_icon.webp) no-repeat 0 0;
+  mask-size: 100% 100%;
+  background-color: $black;
+  width: vw(176);
+  height: vw(51);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  font-weight: bold;
+  color: $white;
+
+  &:after {
+    @include easing($property: background);
+    mask: url(../img/common/ic_arrow_link.webp) no-repeat 0 0;
+    mask-size: 100% 100%;
+    background-color: $white;
+    content: '';
+    display: block;
+    width: vw(8);
+    height: vw(12);
+    position: absolute;
+    top: 50%;
+    right: vw(18);
+    margin-top: vw(-6);
+  }
+
+  @include hover {
+    background-color: $yellow;
+    color: $black;
+
+    &:after {
+      background-color: $black;
+    }
+  }
+} // btn_more
+
+.access_contents {
+  padding-left: vw(100);
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  column-gap: vw(70);
+
+  .map {
+    width: vw(420);
+    flex-shrink: 0;
+  }
+
+  .txt {
+    display: flex;
+    flex-direction: column;
+    row-gap: vw(62);
+    width: 100%;
+
+    dl {
+      background-image: linear-gradient(to right, $gray2 vw(4), transparent vw(4));
+      background-size: vw(8) 1px;
+      background-repeat: repeat-x;
+      background-position: 0 100%;
+      padding-bottom: vw(62);
+      display: flex;
+      justify-content: space-between;
+      line-height: 1.8;
+
+      &:last-of-type {
+        background: none;
+        padding-bottom: 0;
+      }
+
+      dt {
+        @include inter;
+        font-size: vw(24);
+        font-weight: 400;
+        width: vw(150);
+        color: $green;
+        flex-shrink: 0;
+      }
+
+      dd {
+        width: 100%;
+        font-size: vw(18);
+        display: flex;
+        flex-direction: column;
+        row-gap: vw(20);
+      }
+    }
+
+    .pin {
+      display: flex;
+      align-items: center;
+      column-gap: vw(5);
+      text-decoration: underline;
+
+      &:after {
+        background: url(../img/common/ic_pin.webp) no-repeat 0 0;
+        background-size: 100% 100%;
+        content: '';
+        display: block;
+        width: vw(15);
+        height: vw(18);
+      }
+
+      @include hover {
+        text-decoration: none;
+      }
+    }
+  }
+} // access_contents

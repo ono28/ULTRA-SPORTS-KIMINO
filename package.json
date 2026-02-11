@@ -26,10 +26,12 @@
     "ws": "^8.18.3"
   },
   "dependencies": {
+    "@lottiefiles/dotlottie-wc": "^0.8.15",
     "@splidejs/splide": "^4.1.4",
     "@splidejs/splide-extension-auto-scroll": "^0.5.3",
     "@splidejs/splide-extension-intersection": "^0.2.0",
     "dompurify": "^2.5.8",
+    "lottie-web": "^5.13.0",
     "open": "^11.0.0",
     "simplebar": "^6.3.3"
   },
