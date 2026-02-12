@@ -39,6 +39,10 @@
       <li>
         <a href="<?php echo $siteURL; ?>/access/">ACCESS</a>
       </li>
+
+      <li data-sp>
+        <a href="<?php echo $siteURL; ?>/faq/">FAQ</a>
+      </li>
     </ul>
 
     <?php echo get_component_with_indent('component/sns', 4); ?>

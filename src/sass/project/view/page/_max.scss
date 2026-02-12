@@ -273,7 +273,8 @@
 
       a {
         clip-path: polygon(vw(22) 0%, calc(100% - #{vw(22)}) 0%, 100% vw(22), 100% calc(100% - #{vw(22)}), calc(100% - #{vw(22)}) 100%, vw(22) 100%, 0% calc(100% - #{vw(22)}), 0% vw(22));
-        column-gap: vw(68);
+        padding-right: vw(390);
+        min-height: vw(320);
 
         .dot_bg {
           .dot_line.lt {
@@ -295,7 +296,12 @@
         }
 
         figure {
-          width: vw(324);
+          width: vw(490);
+          height: vw(490);
+          position: absolute;
+          top: 50%;
+          right: vw(-164);
+          margin-top: vw(-245);
         }
 
         .txt {

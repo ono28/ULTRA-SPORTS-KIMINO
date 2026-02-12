@@ -132,7 +132,7 @@
     </div>
 
     <div class="contents c3" data-target data-slideup>
-      <p>「スポーツは考える力を育む」自ら課題を発見し、解決する。<br>そのサイクルが成長を促し、新たな可能性へ。</p>
+      <p>「スポーツは考える力を育む」<br data-sp>自ら課題を発見し、解決する。<br>そのサイクルが成長を促し、<br data-sp>新たな可能性へ。</p>
       <ul>
         <li>
           <strong>PLAY</strong>

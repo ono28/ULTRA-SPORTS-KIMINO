@@ -12,6 +12,8 @@ const _html = document.documentElement;
 const _body = document.body;
 const _loading = document.getElementById('loading');
 const _gHeader = document.getElementById('globalHeader');
+const _btnMenu = document.getElementById('btnMenu');
+const _gNavi = document.getElementById('globalNavi');
 
 // ----------------------------------------------------------
 // グローバルAPI
@@ -25,6 +27,53 @@ const APP = (window.APP ||= {});
 // ----------------------------------------------------------
 // ページ内関数
 // ----------------------------------------------------------
+// グロナビ
+function setGnavi() {
+  let naviOpen = false;
+  let bodyOffsetY;
+
+  _btnMenu.addEventListener('click', () => {
+    naviOpen = naviOpen ? false : true;
+
+    _gNavi.classList.toggle('active');
+    _btnMenu.classList.toggle('active');
+
+    if (naviOpen) {
+      bodyOffsetY = window.scrollY;
+      _body.style.top = `${-bodyOffsetY}px`;
+      _body.classList.add('noscroll');
+    } else {
+      _body.classList.remove('noscroll');
+      _body.style.top = '';
+      window.scrollTo(0, bodyOffsetY);
+
+      _gNavi.querySelectorAll('[data-target]').forEach((el) => {
+        utils.removeAction(el);
+      });
+    }
+  });
+
+  _gNavi.addEventListener('click', (e) => {
+    if (!e.target.closest('.inner')) {
+      if (!naviOpen) return;
+
+      _gNavi.classList.remove('active');
+      _btnMenu.classList.remove('active');
+      _body.classList.remove('noscroll');
+      _body.style.top = '';
+      window.scrollTo(0, bodyOffsetY);
+
+      setTimeout(() => {
+        naviOpen = false;
+
+        _gNavi.querySelectorAll('[data-target]').forEach((el) => {
+          utils.removeAction(el);
+        });
+      }, 100);
+    }
+  });
+}
+
 // グロナビ カレント表示
 function setCurrentNavi() {
   const currentPage = _body.dataset.page;
@@ -113,6 +162,7 @@ async function quickSettings() {
   utils.getScrollbarWidth();
 
   // 関数初期化
+  setGnavi();
   setCurrentNavi();
   setAccordion();
   setSplide();

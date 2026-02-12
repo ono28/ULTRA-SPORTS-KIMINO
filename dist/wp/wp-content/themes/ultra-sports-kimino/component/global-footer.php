@@ -4,6 +4,7 @@
 
 <footer id="globalFooter">
   <a class="logo" href="<?php echo $siteURL; ?>" aria-label="ULTRA SPORTS KIMINO">
+    <i class="l_icon" data-sp></i>
     <i class="l_text"></i>
   </a>
 

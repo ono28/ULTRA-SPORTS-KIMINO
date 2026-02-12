@@ -513,7 +513,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      column-gap: vw(68);
+      padding-right: vw(390);
+      min-height: vw(320);
 
       .dot_bg {
         .dot_line.lt {
@@ -535,8 +536,12 @@
       }
 
       figure {
-        width: vw(324);
-        flex-shrink: 0;
+        width: vw(490);
+        height: vw(490);
+        position: absolute;
+        top: 50%;
+        right: vw(-164);
+        margin-top: vw(-245);
       }
 
       .txt {

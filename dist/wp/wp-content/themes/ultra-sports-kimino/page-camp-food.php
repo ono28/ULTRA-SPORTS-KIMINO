@@ -10,7 +10,7 @@
 
 <header class="page_header">
   <h1 class="page_title">
-    <span class="en">CAMP & FOOD</span>
+    <span class="en">CAMP & <br data-sp>FOOD</span>
     <span class="ja">合宿 & カフェ</span>
   </h1>
 </header>
@@ -162,7 +162,7 @@
     </h2>
 
     <div class="contents">
-      <p class="lead">合宿に関する注意事項書</p>
+      <p class="lead" data-target data-slideup>合宿に関する注意事項書</p>
 
       <ol class="precautions_lists">
         <li data-target data-slideup>

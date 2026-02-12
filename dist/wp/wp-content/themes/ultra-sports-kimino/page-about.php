@@ -9,28 +9,27 @@
 ?>
 
 <section class="mv">
-  <figure class="bg"><img src="<?php echo $path; ?>/assets/img/about/mv.webp" alt="" fetchpriority="high"></figure>
+  <figure class="bg">
+    <picture>
+      <source srcset="<?php echo $path; ?>/assets/img/about/mv_sp.webp" media="(max-width: 759px) and (orientation: portrait)">
+      <img src="<?php echo $path; ?>/assets/img/about/mv.webp" alt="" fetchpriority="high">
+    </picture>
+  </figure>
 
   <div class="txt">
     <div class="inner">
       <h2 data-target data-slideup>ULTRA SPORTS KIMINOについて</h2>
-      <h1 data-target data-slideup>スポーツの先に、何がある？</h1>
+      <h1 data-target data-slideup>スポーツの先に、<br data-sp>何がある？</h1>
       <p data-target data-slideup>スポーツを、考えよう。<br>
-        体から届くサインを、<br>
-        プレーヤーから届くコンタクトを。<br><br>
+        体から届くサインを、<br>プレーヤーから届くコンタクトを。<br><br>
 
         その先には何があるだろう。<br>
-        ここは、誰もがスポーツを楽しむだけでなく、<br>
-        テクノロジーの力で技術を磨いていける場所。<br>
-        AIが動きを見つめ、気づきを与え、<br>
-        考える力で背中を押してくれる。<br><br>
+        ここは、誰もがスポーツを楽しむだけでなく、<br data-pc data-tb>テクノロジーの力で技術を磨いていける場所。<br data-pc data-tb>AIが動きを見つめ、気づきを与え、<br data-pc data-tb>考える力で背中を押してくれる。<br><br>
 
-        その積み重ねが、<br>
-        プレーを想像以上に進化させる。<br><br>
+        その積み重ねが、<br>プレーを想像以上に進化させる。<br><br>
 
         WHAT’S BEYOND PLAY?<br>
-        衝動のままに楽しむスポーツの快感とともに、<br>
-        もっと自由に、限界の先へ。</p>
+        衝動のままに楽しむ<br data-sp>スポーツの快感とともに、<br>もっと自由に、限界の先へ。</p>
     </div>
   </div>
 </section>

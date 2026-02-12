@@ -104,7 +104,6 @@ section,
 summary,
 picture {
   display: block;
-  max-width: 100%;
 }
 
 body {
@@ -274,6 +273,7 @@ textarea {
   -ms-touch-action: manipulation;
   touch-action: manipulation;
   cursor: pointer;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
 }
 
 ol,

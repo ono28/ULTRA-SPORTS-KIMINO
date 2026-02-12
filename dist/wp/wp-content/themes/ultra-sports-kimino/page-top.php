@@ -13,31 +13,29 @@
 </section>
 
 <section class="statement">
-  <figure class="bg" data-target data-slideup><img src="<?php echo $path; ?>/assets/img/top/img_statement.webp" alt=""></figure>
+  <figure class="bg" data-target data-slideup>
+    <picture>
+      <source srcset="<?php echo $path; ?>/assets/img/top/img_statement_sp.webp" media="(max-width: 759px) and (orientation: portrait)">
+      <img src="<?php echo $path; ?>/assets/img/top/img_statement.webp" alt="">
+    </picture>
+  </figure>
   <div class="catchcopy" data-target data-slideup>WHAT’S BEYOND PLAY?</div>
-  <div class="subcopy" data-target data-slideup>Follow your impulses and enjoy the thrill of sports. Go beyond with more freedom.</div>
+  <div class="subcopy" data-target data-slideup>Follow your impulses and enjoy the thrill of sports. <br data-sp>Go beyond with more freedom.</div>
   <div class="inner">
     <div class="txt">
       <h2 data-target data-slideup>スポーツの先に、何がある？</h2>
       <p data-target data-slideup>スポーツを、考えよう。<br>
-        体から届くサインを、<br>
-        プレーヤーから届くコンタクトを。<br><br>
+        体から届くサインを、<br data-pc data-tb>プレーヤーから届くコンタクトを。<br><br>
 
-        その先には何があるだろう。<br>
-        ここは、誰もがスポーツを楽しむだけでなく、<br>
-        テクノロジーの力で技術を磨いていける場所。<br>
-        AIが動きを見つめ、気づきを与え、<br>
-        考える力で背中を押してくれる。<br><br>
+        その先には何があるだろう。<br data-pc data-tb>ここは、誰もがスポーツを楽しむだけでなく、<br data-pc data-tb>テクノロジーの力で技術を磨いていける場所。<br data-pc data-tb>AIが動きを見つめ、気づきを与え、<br data-pc data-tb>考える力で背中を押してくれる。<br><br>
 
-        その積み重ねが、<br>
-        プレーを想像以上に進化させる。<br><br>
+        その積み重ねが、<br data-pc data-tb>プレーを想像以上に進化させる。<br><br>
 
         WHAT’S BEYOND PLAY?<br>
-        衝動のままに楽しむスポーツの快感とともに、<br>
-        もっと自由に、限界の先へ。</p>
+        衝動のままに楽しむスポーツの快感とともに、<br data-pc data-tb>もっと自由に、限界の先へ。</p>
     </div>
 
-    <div class="button" data-target data-slideup>
+    <div class="button" data-target data-slideup data-pc data-tb>
       <a class="btn_more" href="<?php echo $siteURL; ?>/about/">MORE</a>
     </div>
   </div>
@@ -68,7 +66,7 @@
     </div>
 
     <div class="contents c3" data-target data-slideup>
-      <p>「スポーツは考える力を育む」自ら課題を発見し、解決する。<br>そのサイクルが成長を促し、新たな可能性へ。</p>
+      <p>「スポーツは考える力を育む」<br data-sp>自ら課題を発見し、解決する。<br>そのサイクルが成長を促し、<br data-sp>新たな可能性へ。</p>
       <ul>
         <li>
           <strong>PLAY</strong>
