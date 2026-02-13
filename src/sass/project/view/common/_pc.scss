@@ -149,10 +149,10 @@ body {
     column-gap: vw(40);
 
     a {
-      @include easing($property: color);
+      @include easing($property: opacity);
 
       @include hover {
-        color: $yellow;
+        opacity: 0.5;
       }
     }
   }
