@@ -35,8 +35,10 @@
         衝動のままに楽しむスポーツの快感とともに、<br data-pc data-tb>もっと自由に、限界の先へ。</p>
     </div>
 
-    <div class="button" data-target data-slideup data-pc data-tb>
-      <a class="btn_more" href="<?php echo $siteURL; ?>/about/">MORE</a>
+    <div class="button" data-target data-slideup>
+      <div data-pc data-tb>
+        <a class="btn_more" href="<?php echo $siteURL; ?>/about/">MORE</a>
+      </div>
     </div>
   </div>
 </section>
