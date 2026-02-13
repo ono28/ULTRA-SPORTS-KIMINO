@@ -16,7 +16,7 @@
 </header>
 
 <div class="gmap" data-target data-slideup>
-  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.878615502266!2d135.3084489!3d34.175021!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6007362fd12b8cf9%3A0x1efc5bfd9e6fb7a3!2z57SA576O6YeO55S656uL44K544Od44O844OE5pa96Kit44K544Od44O844OE5YWs5ZyS566h55CG5qOf!5e0!3m2!1sja!2sjp!4v1770703053050!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+  <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3300.9015059110534!2d135.30793079999998!3d34.1744358!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x6007362e32edaeb1%3A0xdc4d4f7308aa7a7a!2z57SA576O6YeO55S644K544Od44O844OE5YWs5ZyS!5e0!3m2!1sja!2sjp!4v1770971109223!5m2!1sja!2sjp" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
 </div>
 
 <div class="page_container">
