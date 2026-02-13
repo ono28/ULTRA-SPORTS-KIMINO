@@ -34,5 +34,7 @@ $green: #8c9a00;
   font-weight: 400;
 }
 
-$outline: drop-shadow(0.5px 0.5px 0 $black) drop-shadow(-0.5px -0.5px 0 $black) drop-shadow(-0.5px 0.5px 0 $black) drop-shadow(0.5px -0.5px 0 $black);
-$outlineGray: drop-shadow(0.5px 0.5px 0 $gray2) drop-shadow(-0.5px -0.5px 0 $gray2) drop-shadow(-0.5px 0.5px 0 $gray2) drop-shadow(0.5px -0.5px 0 $gray2);
+// $outline: drop-shadow(1px 1px 0 $black) drop-shadow(-1px -1px 0 $black) drop-shadow(-1px 1px 0 $black) drop-shadow(1px -1px 0 $black);
+// $outlineGray: drop-shadow(1px 1px 0 $gray2) drop-shadow(-1px -1px 0 $gray2) drop-shadow(-1px 1px 0 $gray2) drop-shadow(1px -1px 0 $gray2);
+$outline: drop-shadow(1px 0 0 $black) drop-shadow(-1px 0 0 $black) drop-shadow(0 1px 0 $black) drop-shadow(0 -1px 0 $black);
+$outlineGray: drop-shadow(1px 0 0 $gray2) drop-shadow(-1px 0 0 $gray2) drop-shadow(0 1px 0 $gray2) drop-shadow(0 -1px 0 $gray2);
