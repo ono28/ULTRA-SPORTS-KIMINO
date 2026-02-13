@@ -141,25 +141,7 @@
         }
 
         ul {
-          column-gap: vw(40);
           margin-bottom: vw(44);
-
-          li {
-            width: vw(280);
-            height: vw(155);
-
-            &:before {
-              clip-path: polygon(vw(20) 0%, calc(100% - #{vw(20)}) 0%, 100% vw(17), 100% calc(100% - #{vw(17)}), calc(100% - #{vw(20)}) 100%, vw(20) 100%, 0% calc(100% - #{vw(17)}), 0% vw(17));
-            }
-
-            strong {
-              font-size: vw(26);
-            }
-
-            span {
-              font-size: vw(18);
-            }
-          }
         }
       } // c3
     } // ai_sports
@@ -504,27 +486,6 @@
         p {
           font-size: vw(24);
           margin-bottom: vw(72);
-        }
-
-        ul {
-          column-gap: vw(40);
-
-          li {
-            width: vw(280);
-            height: vw(155);
-
-            &:before {
-              clip-path: polygon(vw(20) 0%, calc(100% - #{vw(20)}) 0%, 100% vw(17), 100% calc(100% - #{vw(17)}), calc(100% - #{vw(20)}) 100%, vw(20) 100%, 0% calc(100% - #{vw(17)}), 0% vw(17));
-            }
-
-            strong {
-              font-size: vw(26);
-            }
-
-            span {
-              font-size: vw(18);
-            }
-          }
         }
       } // c3
     } // introduction

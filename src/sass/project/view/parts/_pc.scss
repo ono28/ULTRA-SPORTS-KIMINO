@@ -556,3 +556,32 @@
     }
   }
 } // access_contents
+
+.ai-sports_lists {
+  display: flex;
+  column-gap: vw(40);
+
+  li {
+    // filter: $outlineGray;
+    background: url(../img/common/frame_ai-sports.svg) no-repeat 0 0;
+    background-size: 100% 100%;
+    width: vw(280);
+    height: vw(155);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    line-height: 1.8;
+
+    strong {
+      @include inter;
+      font-size: vw(26);
+      font-weight: 600;
+    }
+
+    span {
+      font-size: vw(18);
+    }
+  }
+} // ai-sports_lists

@@ -300,4 +300,25 @@
       }
     }
   } // access_contents
+
+  .ai-sports_lists {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: vw(13);
+
+    li {
+      background-image: url(../img/common/frame_ai-sports_sp.svg);
+      width: vw(161);
+      height: vw(89);
+      line-height: 1.4;
+
+      strong {
+        font-size: vw(18);
+      }
+
+      span {
+        font-size: vw(16);
+      }
+    }
+  } // ai-sports_lists
 } // SP

@@ -167,28 +167,7 @@
         }
 
         ul {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: vw(13);
           margin-bottom: vw(45);
-
-          li {
-            width: vw(161);
-            height: vw(89);
-            line-height: 1.4;
-
-            &:before {
-              clip-path: polygon(vw(12) 0%, calc(100% - #{vw(12)}) 0%, 100% vw(10), 100% calc(100% - #{vw(10)}), calc(100% - #{vw(12)}) 100%, vw(12) 100%, 0% calc(100% - #{vw(10)}), 0% vw(10));
-            }
-
-            strong {
-              font-size: vw(18);
-            }
-
-            span {
-              font-size: vw(16);
-            }
-          }
         }
       } // c3
     } // ai_sports
@@ -637,28 +616,7 @@
         }
 
         ul {
-          display: grid;
-          grid-template-columns: repeat(2, 1fr);
-          gap: vw(13);
           margin-bottom: vw(45);
-
-          li {
-            width: vw(161);
-            height: vw(89);
-            line-height: 1.4;
-
-            &:before {
-              clip-path: polygon(vw(12) 0%, calc(100% - #{vw(12)}) 0%, 100% vw(10), 100% calc(100% - #{vw(10)}), calc(100% - #{vw(12)}) 100%, vw(12) 100%, 0% calc(100% - #{vw(10)}), 0% vw(10));
-            }
-
-            strong {
-              font-size: vw(18);
-            }
-
-            span {
-              font-size: vw(16);
-            }
-          }
         }
       } // c3
     } // introduction

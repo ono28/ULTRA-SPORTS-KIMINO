@@ -271,4 +271,22 @@
       }
     }
   } // access_contents
+
+  .ai-sports_lists {
+    display: flex;
+    column-gap: vw(40);
+
+    li {
+      width: vw(280);
+      height: vw(155);
+
+      strong {
+        font-size: vw(26);
+      }
+
+      span {
+        font-size: vw(18);
+      }
+    }
+  } // ai-sports_lists
 } // max
