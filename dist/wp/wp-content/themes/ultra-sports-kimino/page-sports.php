@@ -615,7 +615,7 @@
             </tbody>
           </table>
         </div>
-        <p class="note" data-sp>スクロールできます</p>
+        <p class="note" data-sp>横にスクロールできます</p>
       </div>
 
       <ul class="note" data-target data-slideup>

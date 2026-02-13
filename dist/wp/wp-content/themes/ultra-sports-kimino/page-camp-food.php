@@ -148,7 +148,7 @@
             </tbody>
           </table>
         </div>
-        <p class="note" data-sp>スクロールできます</p>
+        <p class="note" data-sp>横にスクロールできます</p>
       </div>
 
       <p class="lead">団体の場合は２名以上、飲食(3食)は別途、シャワーは含む。<br>他にも各種プログラムがございます。詳細はHPをご確認ください。</p>
