@@ -507,6 +507,7 @@
     }
 
     a {
+      @include easing($property: background);
       clip-path: polygon(vw(22) 0%, calc(100% - #{vw(22)}) 0%, 100% vw(22), 100% calc(100% - #{vw(22)}), calc(100% - #{vw(22)}) 100%, vw(22) 100%, 0% calc(100% - #{vw(22)}), 0% vw(22));
       background-color: $white;
       position: relative;
@@ -556,7 +557,6 @@
           position: relative;
 
           &:after {
-            @include easing($property: background);
             mask: url(../img/common/ic_arrow_link.webp) no-repeat 0 0;
             mask-size: 100% 100%;
             background-color: $black;
@@ -577,11 +577,7 @@
       }
 
       @include hover {
-        .txt {
-          dt:after {
-            background-color: $yellow;
-          }
-        }
+        background-color: $yellow;
       }
     }
   } // menu
