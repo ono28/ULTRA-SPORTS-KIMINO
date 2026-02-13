@@ -1,1 +1,321 @@
-import q from"./class/checkform.js";import{utils as d}from"./utils/util.js";import{validationMessages as S}from"./utils/validation-messages.js";const m=document.getElementById("formContents"),w=document.querySelectorAll(".form-section"),b=document.getElementById("form-area"),l=document.getElementById("confirm-area"),f=document.getElementById("complete-area"),y=document.getElementById("formLoading"),a=document.getElementById("contact-form");let p=null,h=null;const g=a.getAttribute("action"),v=document.documentElement.lang||"ja";function D(){const t=new FormData(a),e={};return t.forEach((o,r)=>{r!=="attachment"&&(e[r]=o)}),e}function A(){const t=new FormData(a);return a.querySelectorAll("input[required], select[required], textarea[required]").forEach(e=>{e.name&&t.append("__required[]",e.name)}),t}function E(t){document.querySelectorAll(".error-message").forEach(e=>{e.textContent="",e.style.display="none"});for(const[e,o]of Object.entries(t)){if(!o)continue;const r=document.querySelector(`[data-error="${e}"]`);r&&(r.textContent=o,r.style.display="block")}}function u(t){t?y.classList.add("show"):y.classList.remove("show")}async function s(t){switch(window.scrollTo(0,0),w.forEach(e=>{e.classList.add("hide")}),m.querySelectorAll("[data-target]").forEach((e,o)=>{d.removeAction(e)}),t){case"form":b.classList.remove("hide");break;case"confirm":l.classList.remove("hide");break;case"complete":f.classList.remove("hide");break;default:break}await d.delay(100),m.querySelectorAll("[data-target]").forEach((e,o)=>{d.addAction(e,o)})}async function k(t){t.preventDefault();const e=a.querySelector(".btn_submit");if(!(e&&e.classList.contains("disable"))){u(!0),E({});try{const o=A();o.append("lang",v);const r=await fetch(`${g}/validate.php`,{method:"POST",body:o});if(!r.ok){const n=await r.text();console.error("Server error:",r.status,n),alert(`\u30B5\u30FC\u30D0\u30FC\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3057\u307E\u3057\u305F (${r.status})`),s("form");return}const i=r.headers.get("content-type");if(!i||!i.includes("application/json")){const n=await r.text();console.error("Invalid response type:",i,n),alert("\u30B5\u30FC\u30D0\u30FC\u304B\u3089\u4E0D\u6B63\u306A\u30EC\u30B9\u30DD\u30F3\u30B9\u304C\u8FD4\u3055\u308C\u307E\u3057\u305F"),s("form");return}const c=await r.json();c.status==="confirm"?(p=c.token,l.innerHTML=c.html,s("confirm"),L()):c.status==="error"&&(E(c.errors),s("form"))}catch(o){console.error("Error:",o),alert("\u901A\u4FE1\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002")}finally{u(!1)}}}function L(){const t=l.querySelector(".btn.back");t&&t.addEventListener("click",()=>{s("form")});const e=l.querySelector(".btn.send");e&&e.addEventListener("click",x)}async function x(){u(!0);try{const t=await fetch(`${g}/send.php`,{method:"POST",headers:{"Content-Type":"application/json"},body:JSON.stringify({token:p})});if(!t.ok){const r=await t.text();console.error("Server error:",t.status,r),alert(`\u30B5\u30FC\u30D0\u30FC\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3057\u307E\u3057\u305F (${t.status})`),s("form");return}const e=t.headers.get("content-type");if(!e||!e.includes("application/json")){const r=await t.text();console.error("Invalid response type:",e,r),alert("\u30B5\u30FC\u30D0\u30FC\u304B\u3089\u4E0D\u6B63\u306A\u30EC\u30B9\u30DD\u30F3\u30B9\u304C\u8FD4\u3055\u308C\u307E\u3057\u305F"),s("form");return}const o=await t.json();o.status==="success"?(f.innerHTML=o.html,s("complete"),a.reset()):o.status==="error"&&(alert(o.message||"\u9001\u4FE1\u306B\u5931\u6557\u3057\u307E\u3057\u305F\u3002"),s("form"))}catch(t){console.error("Error:",t),alert("\u901A\u4FE1\u30A8\u30E9\u30FC\u304C\u767A\u751F\u3057\u307E\u3057\u305F\u3002")}finally{u(!1)}}function B(){const t=document.getElementById("inquiry-type"),e=document.querySelectorAll(".recruit-only");t&&(t.addEventListener("change",o=>{const r=o.target.value==="recruit";e.forEach(i=>{const c=i.querySelectorAll("input, select, textarea");r?(i.style.display="block",c.forEach(n=>{n.dataset.originalRequired==="true"&&(n.required=!0)})):(i.style.display="none",c.forEach(n=>{n.required&&(n.dataset.originalRequired="true",n.required=!1),n.value=""}))}),h?.check()}),e.forEach(o=>{o.querySelectorAll("input, select, textarea").forEach(r=>{r.required&&(r.dataset.originalRequired="true",r.required=!1)})}))}async function I(){a&&(h=new q(a,S),B(),a.addEventListener("submit",k))}window.addEventListener("DOMContentLoaded",()=>{I()});
+import CheckForm from './class/checkform.js';
+import { utils } from './utils/util.js';
+import { validationMessages } from './utils/validation-messages.js';
+
+// ----------------------------------------------------------
+// DOM要素
+// ----------------------------------------------------------
+const formContents = document.getElementById('formContents');
+const formSections = document.querySelectorAll('.form-section');
+const formArea = document.getElementById('form-area');
+const confirmArea = document.getElementById('confirm-area');
+const completeArea = document.getElementById('complete-area');
+const loadingArea = document.getElementById('formLoading');
+const contactForm = document.getElementById('contact-form');
+
+// ----------------------------------------------------------
+// グローバルAPI
+// ----------------------------------------------------------
+let csrfToken = null;
+let checkFormInstance = null;
+
+// ----------------------------------------------------------
+// 設定
+// ----------------------------------------------------------
+const API_BASE = contactForm.getAttribute('action');
+const LANG = document.documentElement.lang || 'ja'; // HTML lang属性から言語を取得
+
+// ----------------------------------------------------------
+// ページ内関数
+// ----------------------------------------------------------
+// フォームデータを取得
+function getFormData() {
+  const formData = new FormData(contactForm);
+  const data = {};
+
+  // 通常のフィールドを取得
+  formData.forEach((value, key) => {
+    if (key !== 'attachment') {
+      data[key] = value;
+    }
+  });
+
+  return data;
+}
+
+// ファイル付きフォームデータを取得
+function getFormDataWithFile() {
+  const fd = new FormData(contactForm);
+
+  // required属性が付いた要素のnameを送信（サーバー側で必須判定に使う）
+  contactForm.querySelectorAll('input[required], select[required], textarea[required]').forEach((el) => {
+    if (el.name) fd.append('__required[]', el.name);
+  });
+
+  return fd;
+}
+
+// エラー表示
+function showErrors(errors) {
+  // エラーメッセージをクリア
+  document.querySelectorAll('.error-message').forEach((el) => {
+    el.textContent = '';
+    el.style.display = 'none';
+  });
+
+  // 各フィールドのエラーを表示（空文字のエラーは無視）
+  for (const [field, message] of Object.entries(errors)) {
+    if (!message) continue;
+    const errorEl = document.querySelector(`[data-error="${field}"]`);
+    if (errorEl) {
+      errorEl.textContent = message;
+      errorEl.style.display = 'block';
+    }
+  }
+}
+
+// ローディング表示切替
+function toggleLoading(show) {
+  if (show) {
+    loadingArea.classList.add('show');
+  } else {
+    loadingArea.classList.remove('show');
+  }
+}
+
+// エリア切替
+async function showArea(area) {
+  window.scrollTo(0, 0);
+
+  formSections.forEach((el) => {
+    el.classList.add('hide');
+  });
+
+  formContents.querySelectorAll('[data-target]').forEach((el, index) => {
+    utils.removeAction(el);
+  });
+
+  switch (area) {
+    case 'form':
+      formArea.classList.remove('hide');
+      break;
+
+    case 'confirm':
+      confirmArea.classList.remove('hide');
+      break;
+
+    case 'complete':
+      completeArea.classList.remove('hide');
+      break;
+
+    default:
+      break;
+  }
+
+  await utils.delay(100);
+  formContents.querySelectorAll('[data-target]').forEach((el, index) => {
+    utils.addAction(el, index);
+  });
+}
+
+// 確認画面へ
+async function handleSubmit(e) {
+  e.preventDefault();
+
+  // 送信ボタンがdisableの場合は処理を中断
+  const submitBtn = contactForm.querySelector('.btn_submit');
+  if (submitBtn && submitBtn.classList.contains('disable')) {
+    return;
+  }
+
+  toggleLoading(true);
+  showErrors({});
+
+  try {
+    const formData = getFormDataWithFile();
+    formData.append('lang', LANG); // 言語パラメータを追加
+
+    const response = await fetch(`${API_BASE}/validate.php`, {
+      method: 'POST',
+      body: formData, // multipart/form-dataとして送信
+    });
+
+    // レスポンスのチェック
+    if (!response.ok) {
+      const text = await response.text();
+      console.error('Server error:', response.status, text);
+      alert(`サーバーエラーが発生しました (${response.status})`);
+      showArea('form');
+      return;
+    }
+
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.error('Invalid response type:', contentType, text);
+      alert('サーバーから不正なレスポンスが返されました');
+      showArea('form');
+      return;
+    }
+
+    const data = await response.json();
+
+    if (data.status === 'confirm') {
+      csrfToken = data.token;
+      confirmArea.innerHTML = data.html;
+      showArea('confirm');
+
+      // 確認画面のボタンイベント設定
+      setupConfirmButtons();
+    } else if (data.status === 'error') {
+      showErrors(data.errors);
+      showArea('form');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('通信エラーが発生しました。');
+  } finally {
+    toggleLoading(false);
+  }
+}
+
+// 確認画面のボタン設定
+function setupConfirmButtons() {
+  // 戻るボタン
+  const backBtn = confirmArea.querySelector('.btn.back');
+  if (backBtn) {
+    backBtn.addEventListener('click', () => {
+      showArea('form');
+    });
+  }
+
+  // 送信ボタン
+  const sendBtn = confirmArea.querySelector('.btn.send');
+  if (sendBtn) {
+    sendBtn.addEventListener('click', handleSend);
+  }
+}
+
+// メール送信
+async function handleSend() {
+  toggleLoading(true);
+
+  try {
+    const response = await fetch(`${API_BASE}/send.php`, {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({
+        token: csrfToken,
+      }),
+    });
+
+    // レスポンスのチェック
+    if (!response.ok) {
+      const text = await response.text();
+      console.error('Server error:', response.status, text);
+      alert(`サーバーエラーが発生しました (${response.status})`);
+      showArea('form');
+      return;
+    }
+
+    const contentType = response.headers.get('content-type');
+    if (!contentType || !contentType.includes('application/json')) {
+      const text = await response.text();
+      console.error('Invalid response type:', contentType, text);
+      alert('サーバーから不正なレスポンスが返されました');
+      showArea('form');
+      return;
+    }
+
+    const data = await response.json();
+
+    if (data.status === 'success') {
+      completeArea.innerHTML = data.html;
+      showArea('complete');
+      contactForm.reset();
+    } else if (data.status === 'error') {
+      alert(data.message || '送信に失敗しました。');
+      showArea('form');
+    }
+  } catch (error) {
+    console.error('Error:', error);
+    alert('通信エラーが発生しました。');
+  } finally {
+    toggleLoading(false);
+  }
+}
+
+// フォーム種類の切り替え
+function setupInquiryTypeToggle() {
+  const inquiryTypeSelect = document.getElementById('inquiry-type');
+  const recruitOnlyFields = document.querySelectorAll('.recruit-only');
+
+  if (!inquiryTypeSelect) return; // フォーム選択がない場合はスキップ
+
+  inquiryTypeSelect.addEventListener('change', (e) => {
+    const isRecruit = e.target.value === 'recruit';
+
+    recruitOnlyFields.forEach((group) => {
+      const inputs = group.querySelectorAll('input, select, textarea');
+
+      if (isRecruit) {
+        group.style.display = 'block';
+        // required属性を復元
+        inputs.forEach((field) => {
+          if (field.dataset.originalRequired === 'true') {
+            field.required = true;
+          }
+        });
+      } else {
+        group.style.display = 'none';
+        // required属性を一時削除
+        inputs.forEach((field) => {
+          if (field.required) {
+            field.dataset.originalRequired = 'true';
+            field.required = false;
+          }
+          // 値もクリア
+          field.value = '';
+        });
+      }
+    });
+
+    // CheckFormを再実行
+    checkFormInstance?.check();
+  });
+
+  // 初期状態で採用フォーム項目のrequired情報を保存
+  recruitOnlyFields.forEach((group) => {
+    group.querySelectorAll('input, select, textarea').forEach((field) => {
+      if (field.required) {
+        field.dataset.originalRequired = 'true';
+        field.required = false; // 初期状態では非表示なので無効化
+      }
+    });
+  });
+}
+
+// ----------------------------------------------------------
+// 初期化
+// ----------------------------------------------------------
+async function quickSettings() {
+  if (contactForm) {
+    // CheckFormインスタンスを作成（バリデーション・送信ボタン制御）
+    checkFormInstance = new CheckForm(contactForm, validationMessages);
+
+    // フォーム種類の切り替え設定
+    setupInquiryTypeToggle();
+
+    // フォーム送信イベント
+    contactForm.addEventListener('submit', handleSubmit);
+  }
+}
+
+// ----------------------------------------------------------
+// 実行
+// ----------------------------------------------------------
+window.addEventListener('DOMContentLoaded', () => {
+  quickSettings();
+});

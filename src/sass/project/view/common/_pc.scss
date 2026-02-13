@@ -113,11 +113,11 @@ body {
       @include easing($property: background);
     }
 
-    @include hover {
-      .l_icon {
-        background-color: $yellow;
-      }
-    }
+    // @include hover {
+    //   .l_icon {
+    //     background-color: $yellow;
+    //   }
+    // }
   }
 } // globalHeader
 
