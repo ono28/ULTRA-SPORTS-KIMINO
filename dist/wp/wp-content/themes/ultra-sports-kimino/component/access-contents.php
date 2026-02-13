@@ -14,7 +14,7 @@
           073-489-5368<br>
           営業時間：9:00-21:00　定休日：火曜日</p>
         <p>
-          <a href="https://maps.app.goo.gl/khDJdZaBeAuyW6QU7" target="_blank" class="pin">Google Maps</a>
+          <a href="https://maps.app.goo.gl/ZfWoo6u9e6VaXdk78" target="_blank" class="pin">Google Maps</a>
         </p>
       </dd>
     </dl>
