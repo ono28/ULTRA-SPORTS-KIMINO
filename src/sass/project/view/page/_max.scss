@@ -877,7 +877,7 @@
         font-size: vw(14);
 
         &:before {
-          clip-path: polygon(vw(10) 0%, calc(100% - #{vw(10)}) 0%, 100% vw(10), 100% calc(100% - #{vw(10)}), calc(100% - #{vw(10)}) 100%, vw(10) 100%, 0% calc(100% - #{vw(10)}), 0% vw(10));
+          clip-path: polygon(vw(9) 0%, calc(100% - #{vw(9)}) 0%, 100% vw(9), 100% calc(100% - #{vw(9)}), calc(100% - #{vw(9)}) 100%, vw(9) 100%, 0% calc(100% - #{vw(9)}), 0% vw(9));
         }
       }
     } // categories

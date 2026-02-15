@@ -1441,7 +1441,9 @@
     a {
       @include easing($property: color);
       @include inter;
-      filter: $outline;
+      background: url(../img/common/btn_category.svg) no-repeat 0 0;
+      background-size: 100% 100%;
+      // filter: $outline;
       display: flex;
       align-items: center;
       justify-content: center;
@@ -1452,8 +1454,8 @@
 
       &:before {
         @include easing($property: background);
-        clip-path: polygon(vw(10) 0%, calc(100% - #{vw(10)}) 0%, 100% vw(10), 100% calc(100% - #{vw(10)}), calc(100% - #{vw(10)}) 100%, vw(10) 100%, 0% calc(100% - #{vw(10)}), 0% vw(10));
-        background-color: $white;
+        clip-path: polygon(vw(9) 0%, calc(100% - #{vw(9)}) 0%, 100% vw(9), 100% calc(100% - #{vw(9)}), calc(100% - #{vw(9)}) 100%, vw(9) 100%, 0% calc(100% - #{vw(9)}), 0% vw(9));
+        // background-color: $white;
         content: '';
         display: block;
         width: calc(100% - 2px);
