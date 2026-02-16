@@ -20,7 +20,7 @@
     </picture>
   </figure>
   <div class="catchcopy" data-target data-slideup>WHAT’S BEYOND PLAY?</div>
-  <div class="subcopy" data-target data-slideup>Follow your impulses and enjoy the thrill of sports. <br data-sp>Go beyond with more freedom.</div>
+  <div class="subcopy" data-target data-slideup>Follow your impulses and enjoy the thrill of sports<span data-pc data-tb>.</span><br data-sp>Go beyond with more freedom<span data-pc data-tb>.</span></div>
   <div class="inner">
     <div class="txt">
       <h2 data-target data-slideup>スポーツの先に、何がある？</h2>
