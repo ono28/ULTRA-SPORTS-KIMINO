@@ -50,12 +50,12 @@
     <ul class="external_links">
       <li>
         <a href="#" target="_blank">
-          <span>施設の<br>ご予約</span>
+          <span>施設の<br data-pc data-tb>ご予約</span>
         </a>
       </li>
       <li>
         <a href="#" target="_blank">
-          <span>宿泊の<br>ご予約</span>
+          <span>宿泊の<br data-pc data-tb>ご予約</span>
         </a>
       </li>
     </ul>

@@ -156,8 +156,9 @@
       gap: vw(20);
 
       a {
-        width: vw(98);
-        height: vw(52);
+        background-image: url(../img/common/btn_frame_sp.svg);
+        width: vw(146);
+        height: vw(58);
 
         &:before {
           clip-path: polygon(vw(8) 0%, calc(100% - #{vw(8)}) 0%, 100% vw(7), 100% calc(100% - #{vw(7)}), calc(100% - #{vw(8)}) 100%, vw(8) 100%, 0% calc(100% - #{vw(7)}), 0% vw(7));
