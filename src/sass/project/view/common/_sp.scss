@@ -157,8 +157,9 @@
 
       a {
         background-image: url(../img/common/btn_frame_sp.svg);
-        width: vw(146);
+        width: vw(136);
         height: vw(58);
+        padding-right: vw(10);
 
         &:before {
           clip-path: polygon(vw(8) 0%, calc(100% - #{vw(8)}) 0%, 100% vw(7), 100% calc(100% - #{vw(7)}), calc(100% - #{vw(8)}) 100%, vw(8) 100%, 0% calc(100% - #{vw(7)}), 0% vw(7));
@@ -167,7 +168,7 @@
         &:after {
           width: vw(8);
           height: vw(12);
-          right: vw(15);
+          right: vw(10);
           margin-top: vw(-6);
         }
 

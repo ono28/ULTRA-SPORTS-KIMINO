@@ -51,7 +51,12 @@
               <p>個人からチーム、様々なエリアで各種スポーツをプレーができます。個人の筋力トレーニングでのジムから、大会開催まで幅広いスポーツへの対応が可能です。フリースペースとしての機能も持ち、キッズエリアでの子供の遊びや、園路のウォーキングも対応しています。各種スポーツに合わせた機材や道具の貸し出しも行っており、ナイター利用(PM9時まで)も可能です。</p>
             </dd>
           </dl>
-          <figure><img src="<?php echo $path; ?>/assets/img/about/img_sports.webp" alt=""></figure>
+          <figure>
+            <picture>
+              <source srcset="<?php echo $path; ?>/assets/img/about/img_sports_sp.webp" media="(max-width: 759px) and (orientation: portrait)">
+              <img src="<?php echo $path; ?>/assets/img/about/img_sports.webp" alt="" fetchpriority="high">
+            </picture>
+          </figure>
         </a>
       </li>
 
