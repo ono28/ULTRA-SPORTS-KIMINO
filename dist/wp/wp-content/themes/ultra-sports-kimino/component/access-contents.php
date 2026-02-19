@@ -11,7 +11,7 @@
       <dd>
         <p>〒640-1131<br>
           和歌山県海草郡紀美野町動木518<br>
-          073-489-5368<br>
+          073-488-2082<br>
           営業時間：9:00-21:00　定休日：火曜日</p>
         <p>
           <a href="https://maps.app.goo.gl/ZfWoo6u9e6VaXdk78" target="_blank" class="pin">Google Maps</a>
