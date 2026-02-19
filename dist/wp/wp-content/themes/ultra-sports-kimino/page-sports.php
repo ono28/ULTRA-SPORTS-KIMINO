@@ -72,7 +72,8 @@
               <figure class="icon"><img src="<?php echo $path; ?>/assets/img/sports/img_step_2.webp" alt=""></figure>
               <div class="step_txt">
                 <p>映像アップロード</p>
-                <p>映像編集</p>
+                <p>解析</p>
+                <p><span>※AIによる自動解析</span></p>
               </div>
             </li>
 
@@ -116,7 +117,8 @@
               <figure class="icon"><img src="<?php echo $path; ?>/assets/img/sports/img_step_2.webp" alt=""></figure>
               <div class="step_txt">
                 <p>映像アップロード</p>
-                <p>映像編集</p>
+                <p>解析</p>
+                <p><span>※AIによる自動解析</span></p>
               </div>
             </li>
 
