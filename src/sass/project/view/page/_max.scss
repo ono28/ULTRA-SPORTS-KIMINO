@@ -833,7 +833,7 @@
           height: vw(53);
 
           &:before {
-            clip-path: polygon(vw(14) 0%, calc(100% - #{vw(14)}) 0%, 100% vw(14), 100% calc(100% - #{vw(14)}), calc(100% - #{vw(14)}) 100%, vw(14) 100%, 0% calc(100% - #{vw(14)}), 0% vw(14));
+            clip-path: polygon(vw(13) 0%, calc(100% - #{vw(13)}) 0%, 100% vw(13), 100% calc(100% - #{vw(13)}), calc(100% - #{vw(13)}) 100%, vw(13) 100%, 0% calc(100% - #{vw(13)}), 0% vw(13));
           }
 
           &:after {

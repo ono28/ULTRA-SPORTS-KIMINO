@@ -1337,7 +1337,9 @@
 
       .btn_pdf {
         @include easing($property: color);
-        filter: $outline;
+        // filter: $outline;
+        background: url(../img/camp-food/btn_frame.svg) no-repeat 0 0;
+        background-size: 100% 100%;
         display: flex;
         align-items: center;
         justify-content: center;
@@ -1348,7 +1350,7 @@
 
         &:before {
           @include easing($property: background);
-          clip-path: polygon(vw(14) 0%, calc(100% - #{vw(14)}) 0%, 100% vw(14), 100% calc(100% - #{vw(14)}), calc(100% - #{vw(14)}) 100%, vw(14) 100%, 0% calc(100% - #{vw(14)}), 0% vw(14));
+          clip-path: polygon(vw(13) 0%, calc(100% - #{vw(13)}) 0%, 100% vw(13), 100% calc(100% - #{vw(13)}), calc(100% - #{vw(13)}) 100%, vw(13) 100%, 0% calc(100% - #{vw(13)}), 0% vw(13));
           background-color: $white;
           content: '';
           display: block;
@@ -1357,7 +1359,7 @@
           position: absolute;
           top: 1px;
           left: 1px;
-          z-index: 0;
+          z-index: -1;
         }
 
         &:after {
