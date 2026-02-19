@@ -666,6 +666,37 @@
           p {
             line-height: 1.8;
           }
+
+          .button {
+            margin-top: vw(30);
+
+            a {
+              display: flex;
+              align-items: center;
+              column-gap: vw(10);
+
+              span {
+                @include inter;
+                font-size: vw(20);
+                font-weight: bold;
+                text-decoration: underline;
+                text-underline-offset: 3px;
+              }
+
+              .blank {
+                background: url(../img/common/ic_blank.webp) no-repeat 0 0;
+                background-size: 100% 100%;
+                width: vw(17);
+                height: vw(17);
+              }
+
+              @include hover {
+                span {
+                  text-decoration: none;
+                }
+              }
+            }
+          }
         }
       }
 
@@ -781,14 +812,13 @@
 
       .u1 {
         width: vw(1110);
-        height: vw(513);
         margin-inline: auto;
         margin-bottom: vw(100);
         display: flex;
         align-items: center;
         justify-content: center;
         column-gap: vw(84);
-        padding: 0 vw(77) 0 vw(124);
+        padding: vw(50) vw(77) vw(100) vw(124);
 
         .dot_bg {
           clip-path: polygon(vw(86) 0%, calc(100% - #{vw(86)}) 0%, 100% vw(86), 100% calc(100% - #{vw(86)}), calc(100% - #{vw(86)}) 100%, vw(86) 100%, 0% calc(100% - #{vw(86)}), 0% vw(86));
@@ -814,6 +844,35 @@
 
         .txt {
           width: 100%;
+
+          .button {
+            margin-top: vw(40);
+
+            .with_logo {
+              column-gap: vw(30);
+
+              img {
+                @include easing($property: opacity);
+                width: vw(428);
+              }
+
+              .blank {
+                background-image: url(../img/sports/ic_blank.webp);
+                width: vw(26);
+                height: vw(26);
+              }
+
+              span {
+                text-decoration: none;
+              }
+
+              @include hover {
+                img {
+                  opacity: 0.5;
+                }
+              }
+            }
+          }
         }
 
         .img {

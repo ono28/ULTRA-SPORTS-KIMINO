@@ -374,6 +374,23 @@
               font-size: vw(20);
               margin-bottom: vw(12);
             }
+
+            .button {
+              margin-top: vw(30);
+
+              a {
+                column-gap: vw(10);
+
+                span {
+                  font-size: vw(20);
+                }
+
+                .blank {
+                  width: vw(17);
+                  height: vw(17);
+                }
+              }
+            }
           }
         }
 
@@ -439,10 +456,9 @@
 
         .u1 {
           width: vw(1110);
-          height: vw(513);
           margin-bottom: vw(100);
           column-gap: vw(84);
-          padding: 0 vw(77) 0 vw(124);
+          padding: vw(50) vw(77) vw(100) vw(124);
 
           .dot_bg {
             clip-path: polygon(vw(86) 0%, calc(100% - #{vw(86)}) 0%, 100% vw(86), 100% calc(100% - #{vw(86)}), calc(100% - #{vw(86)}) 100%, vw(86) 100%, 0% calc(100% - #{vw(86)}), 0% vw(86));
@@ -462,6 +478,25 @@
             .dot_line.rb {
               right: vw(43.5);
               bottom: vw(43.5);
+            }
+          }
+
+          .txt {
+            .button {
+              margin-top: vw(40);
+
+              .with_logo {
+                column-gap: vw(30);
+
+                img {
+                  width: vw(428);
+                }
+
+                .blank {
+                  width: vw(26);
+                  height: vw(26);
+                }
+              }
             }
           }
 
