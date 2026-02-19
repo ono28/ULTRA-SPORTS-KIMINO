@@ -13,7 +13,7 @@
       <div class="access">
         <div class="title">ACCESS</div>
         <div class="txt">
-          <p>〒640-1141 和歌山県海草郡紀美野町動木518</p>
+          <p>〒640-1131 和歌山県海草郡紀美野町動木518</p>
           <dl>
             <dt>電話番号</dt>
             <dd>073-489-5368</dd>
