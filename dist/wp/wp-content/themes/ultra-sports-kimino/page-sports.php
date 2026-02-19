@@ -90,9 +90,9 @@
         <div class="main">
           <div class="txt">
             <div class="num">03</div>
-            <h3>チームPLAY分析</h3>
-            <h4>SPLYZA Teams</h4>
-            <p>選手が課題を見つけ、それを解決するプロセスを主体的に行うための映像分析ツール《SPLYZA Teams》。自分たちのPLAY映像を見て振り返り、考え、言語化するサイクルを生み出すことで、評価・課題発見・仮説のプロセスを手助けします。</p>
+            <h3>個人PLAY分析</h3>
+            <h4>SPLYZA Motion</h4>
+            <p>カメラ1台でAIによる３D動作解析が可能なモーションキャプチャアプリ《SPLYZA Motion》。動きのリズムや特徴を解析。体の各部位の角度・速度・特定位置からの距離・脊椎の湾曲角度などを算出。スポーツだけでなく、探究学習や研究、臨床にも活用可能。思っても見なかった自分の癖や習慣に気づくかも。</p>
           </div>
           <figure class="img"><img src="<?php echo $path; ?>/assets/img/sports/img_intro_3.webp" alt=""></figure>
         </div>
