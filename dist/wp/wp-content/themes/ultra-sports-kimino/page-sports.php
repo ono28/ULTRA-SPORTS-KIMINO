@@ -516,8 +516,8 @@
               <tr>
                 <td class="white">[ 半面 ]<br>1時間</td>
                 <td class="white">1,100円</td>
-                <td class="white">500円</td>
-                <td class="white">500円</td>
+                <td class="white">550円</td>
+                <td class="white">550円</td>
                 <td class="white">400円</td>
               </tr>
             </tbody>
@@ -526,14 +526,14 @@
               <tr>
                 <td class="yellow" rowspan="2">テニスコート</td>
                 <td class="white">[ 1面 ]<br>1時間</td>
-                <td class="white">1,100円</td>
+                <td class="white">1,000円</td>
                 <td class="white">500円</td>
                 <td class="white">500円</td>
                 <td class="white">450円</td>
               </tr>
               <tr>
                 <td class="white">[ 2面 ]<br>1時間</td>
-                <td class="white">2,200円</td>
+                <td class="white">2,000円</td>
                 <td class="white">1,000円</td>
                 <td class="white">1,000円</td>
                 <td class="white">900円</td>
@@ -558,14 +558,14 @@
                 <td class="white">2,500円</td>
                 <td class="white">1,250円</td>
                 <td class="white">1,250円</td>
-                <td class="white">650円</td>
+                <td class="white">630円</td>
               </tr>
               <tr>
                 <td class="white">[ 半面 ]<br>1時間</td>
                 <td class="white">1,250円</td>
                 <td class="white">630円</td>
                 <td class="white">630円</td>
-                <td class="white">250円</td>
+                <td class="white">350円</td>
               </tr>
             </tbody>
 
