@@ -501,7 +501,7 @@
 
             <tbody>
               <tr>
-                <td class="yellow" rowspan="3">多目的人工芝<br>グラウンド</td>
+                <td class="yellow" rowspan="3">多目的運動広場</td>
                 <td class="white">[ 専用使用 ]<br>1時間</td>
                 <td class="white">1,400円</td>
                 <td class="white">700円</td>
