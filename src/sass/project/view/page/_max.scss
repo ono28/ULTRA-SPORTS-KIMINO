@@ -1054,10 +1054,9 @@
     }
 
     .faq_section {
-      column-gap: vw(85);
-
       .faq_title {
-        width: vw(150);
+        width: vw(250);
+        padding-right: vw(30);
         font-size: vw(18);
       }
 

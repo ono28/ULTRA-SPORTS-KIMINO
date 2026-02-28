@@ -1827,11 +1827,11 @@
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-    column-gap: vw(85);
 
     .faq_title {
       text-align: right;
-      width: vw(150);
+      width: vw(250);
+      padding-right: vw(30);
       flex-shrink: 0;
       font-size: vw(18);
       font-weight: bold;
