@@ -49,12 +49,12 @@
 
     <ul class="external_links">
       <li>
-        <a href="#" target="_blank">
+        <a href="https://reserva.be/ultrasportskimino" target="_blank">
           <span>施設の<br data-pc data-tb>ご予約</span>
         </a>
       </li>
       <li>
-        <a href="#" target="_blank">
+        <a href="https://reserva.be/ultrasportskiminostay" target="_blank">
           <span>宿泊の<br data-pc data-tb>ご予約</span>
         </a>
       </li>
